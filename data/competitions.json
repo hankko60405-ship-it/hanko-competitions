@@ -1,0 +1,1417 @@
+{
+ "updated": "2026-11-10",
+ "note": "Hanko 參賽路線的資料來源。網站 index.html 會讀這個檔案。格式說明見 CLAUDE.md。",
+ "competitions": [
+  {
+   "id": "bh-62pw1n23s7cqzlwu94",
+   "date": "2026-11-13",
+   "name": "IdeaX 創星季・創新挑戰賽",
+   "cats": [
+    "think",
+    "biz"
+   ],
+   "fee": "free",
+   "feeNote": "費用請看簡章",
+   "teamText": "不限身分",
+   "note": "第一階段「提痛點」到 11/13 16:30，之後還有預先提案、模擬募資階段。",
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/62pw1n23s7cqzlwu94"
+    ]
+   ]
+  },
+  {
+   "id": "bh-ut2mbl8s2gr0qntzs6",
+   "date": "2026-11-15",
+   "name": "GCU 青春校園創意大賽",
+   "cats": [
+    "photo",
+    "motion",
+    "brand"
+   ],
+   "fee": "free",
+   "feeNote": "免費報名",
+   "teamText": "個人",
+   "note": "大專組（含碩博士），主題「我的校園生活點點滴滴」，多種創作形式都收。",
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/ut2mbl8s2gr0qntzs6"
+    ]
+   ]
+  },
+  {
+   "id": "bh-t228yd54fbgmmyn0u3",
+   "date": "2026-11-15",
+   "name": "2026 海洋文化攝影比賽",
+   "cats": [
+    "photo"
+   ],
+   "fee": "free",
+   "feeNote": "費用請看簡章",
+   "teamText": "個人",
+   "note": "高雄科大主辦，高中職以上學生，23:59 截止。",
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/t228yd54fbgmmyn0u3"
+    ]
+   ]
+  },
+  {
+   "id": "bh-xxioim431kwggwopl9",
+   "date": "2026-11-15",
+   "name": "第十五屆全國大專盃原創桌上遊戲設計比賽",
+   "cats": [
+    "brand",
+    "think"
+   ],
+   "fee": "free",
+   "feeNote": "費用請看簡章",
+   "teamText": "個人或團隊",
+   "note": "主題「一個 400 年在台灣的故事－天主教」，不收研究生。",
+   "tentative": true,
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/xxioim431kwggwopl9"
+    ]
+   ]
+  },
+  {
+   "id": "bh-w1n06s3bv7m3aph0g9",
+   "date": "2026-11-15",
+   "name": "金弧設計獎 Golden Arc Design Award",
+   "cats": [
+    "brand"
+   ],
+   "fee": "paid",
+   "feeNote": "要付報名費",
+   "teamText": "個人",
+   "note": "國際收費型設計獎。",
+   "tentative": true,
+   "warn": "收費型國際獎，知名度和含金量比 iF、D&AD 低很多，投之前先查往年得獎作品。",
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/w1n06s3bv7m3aph0g9"
+    ]
+   ]
+  },
+  {
+   "id": "bh-5dsdd4ay7pne185jsw",
+   "date": "2026-11-15",
+   "name": "Record 宜蘭 影片徵選（聯禾 03 台）",
+   "cats": [
+    "motion"
+   ],
+   "fee": "free",
+   "feeNote": "費用請看簡章",
+   "teamText": "個人或團隊",
+   "note": "主題是宜蘭風土人情，不限設籍宜蘭。",
+   "tentative": true,
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/5dsdd4ay7pne185jsw"
+    ]
+   ]
+  },
+  {
+   "id": "bh-twjzy7mfj8ububnb5z",
+   "date": "2026-11-16",
+   "name": "桃園珍珠海岸「海岸映像」攝影比賽",
+   "cats": [
+    "photo"
+   ],
+   "fee": "free",
+   "feeNote": "免費參賽",
+   "teamText": "個人",
+   "note": "11/16 10:00 截止，每人最多 5 張，須未公開發表。",
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/twjzy7mfj8ububnb5z"
+    ]
+   ]
+  },
+  {
+   "id": "bh-1u7m6v6vwdvtsemefb",
+   "date": "2026-11-16",
+   "name": "2027 第 9 屆社會企業創業提案競賽獎",
+   "cats": [
+    "biz",
+    "think"
+   ],
+   "fee": "free",
+   "feeNote": "費用請看簡章",
+   "team": "團隊",
+   "teamText": "團隊",
+   "note": "23:59 截止，12 月下旬決賽。",
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/1u7m6v6vwdvtsemefb"
+    ]
+   ]
+  },
+  {
+   "id": "bh-njtiuzyeg28y8xncly",
+   "date": "2026-11-17",
+   "name": "「五感漫遊 城市台北」媒體近用影片徵選",
+   "cats": [
+    "motion"
+   ],
+   "fee": "free",
+   "feeNote": "費用請看簡章",
+   "teamText": "個人或團體",
+   "note": "喜歡拍片的人都能投，線上報名。",
+   "tentative": true,
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/njtiuzyeg28y8xncly"
+    ]
+   ]
+  },
+  {
+   "id": "csmu",
+   "date": "2026-11-20",
+   "fee": "free",
+   "feeNote": "簡章沒寫報名費",
+   "name": "Design for CSMU 全國三創競賽",
+   "cats": [
+    "think",
+    "biz"
+   ],
+   "team": "團隊 3～6 人，指導老師可有可無",
+   "note": "中山醫學大學主辦。從真實問題出發的跨域提案，計畫書用簡報、20 頁以內。團隊不能已登記公司。",
+   "links": [
+    [
+     "競賽辦法",
+     "https://iic.csmu.edu.tw/p/412-1044-5316.php"
+    ],
+    [
+     "線上報名",
+     "https://iic.csmu.edu.tw/p/412-1044-5310.php"
+    ],
+    [
+     "附件下載頁",
+     "https://iic.csmu.edu.tw/p/412-1044-5317.php"
+    ]
+   ],
+   "files": [
+    [
+     "報名表",
+     "https://iic.csmu.edu.tw/var/file/44/1044/img/150630772.docx"
+    ],
+    [
+     "作品未抄襲切結書",
+     "https://iic.csmu.edu.tw/var/file/44/1044/img/835981827.docx"
+    ],
+    [
+     "計畫書格式",
+     "https://iic.csmu.edu.tw/var/file/44/1044/img/570419761.docx"
+    ],
+    [
+     "作品授權書",
+     "csmu/license.pdf"
+    ]
+   ]
+  },
+  {
+   "id": "bh-nj1kp9y4pe4zm4xhvo",
+   "date": "2026-11-20",
+   "name": "2027 SKM PHOTO 新光三越類比攝影創作徵選",
+   "cats": [
+    "photo"
+   ],
+   "fee": "free",
+   "feeNote": "費用請看簡章",
+   "teamText": "個人",
+   "note": "郵戳 11/20 為憑。",
+   "warn": "只收傳統底片作品，數位相機拍的不能投。",
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/nj1kp9y4pe4zm4xhvo"
+    ]
+   ]
+  },
+  {
+   "id": "bh-mto9wgi8rdvrt9j0ot",
+   "date": "2026-11-20",
+   "name": "2026 無限次元智慧醫療設計競賽",
+   "cats": [
+    "think",
+    "brand"
+   ],
+   "fee": "free",
+   "feeNote": "費用請看簡章",
+   "teamText": "個人或團隊",
+   "note": "11/20 17:00 截止，要交報名表、作品說明書、切結書。",
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/mto9wgi8rdvrt9j0ot"
+    ]
+   ]
+  },
+  {
+   "id": "bh-e7qs97zcnyvlssstps",
+   "date": "2026-11-22",
+   "name": "2026 第十一屆通用設計比賽",
+   "cats": [
+    "think",
+    "brand"
+   ],
+   "fee": "free",
+   "feeNote": "費用請看簡章",
+   "teamText": "個人或團隊",
+   "note": "自由空間教育基金會主辦，23:59 截止，12/7 公布入圍。",
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/e7qs97zcnyvlssstps"
+    ]
+   ]
+  },
+  {
+   "id": "hsinchu",
+   "date": "2026-11-25",
+   "fee": "paid",
+   "feeNote": "會員 500 元・非會員 700 元",
+   "name": "新竹攝影獎",
+   "cats": [
+    "photo"
+   ],
+   "note": "新竹縣樹杞林攝影學會主辦。題材不限，每人最多 10 張，作品須未公開發表。寄到新竹縣竹東鎮沿河街 529 巷 2 號，送達為準。最高金獎 3 萬元。",
+   "links": [
+    [
+     "簡章（學會網頁）",
+     "https://xiangqilinsheyingqun3.webnode.tw/%E6%97%85%E8%A1%8C/"
+    ]
+   ],
+   "files": [
+    [
+     "題名表 PDF",
+     "hsinchu/title-form.pdf"
+    ],
+    [
+     "題名表 Word",
+     "https://297cd19acd.cbaul-cdnwnd.com/ee89efa503e60ba0f41c5da433455bc4/200000480-c819dc819f/%E6%96%B0%E7%AB%B9%E6%94%9D%E5%BD%B1%E7%8D%8E%E9%A1%8C%E5%90%8D%E8%A1%A8.docx?ph=297cd19acd"
+    ]
+   ]
+  },
+  {
+   "id": "huacan",
+   "date": "2026-11-27",
+   "fee": "free",
+   "name": "華燦獎（創意賽道・學生組）",
+   "cats": [
+    "brand"
+   ],
+   "team": "個人或團隊（第一作者＋最多 4 人）",
+   "note": "主題「融・合」。17:00 截止，須 1981/1/1 以後出生。視覺傳達、空間、產品、數位媒體、時尚、交叉創新 6 個領域，到官網註冊投件。",
+   "links": [
+    [
+     "華燦獎官網（報名）",
+     "https://www.huacanjiang.com"
+    ]
+   ],
+   "files": [
+    [
+     "2026 華燦獎通知（簡體，22 頁）",
+     "huacan/notice-2026.pdf"
+    ]
+   ]
+  },
+  {
+   "id": "sony-student",
+   "date": "2026-11-27",
+   "fee": "free",
+   "name": "Sony 世界攝影獎・學生組",
+   "cats": [
+    "photo"
+   ],
+   "note": "主題「Journeys」，交 5～10 張組照，18～30 歲。台灣時間 11/28 00:00 截止。",
+   "warn": "只限主辦單位合作學校、攝影相關課程的學生。先確認你的學校在名單上，不在的話改投 1/5 的單張組。",
+   "links": [
+    [
+     "官方說明與規則",
+     "https://worldphoto.org/student"
+    ]
+   ]
+  },
+  {
+   "id": "bh-t93vof597w0gr3igm5",
+   "date": "2026-11-27",
+   "name": "2050 永續生活願景短影音行銷競賽",
+   "cats": [
+    "motion",
+    "biz"
+   ],
+   "fee": "free",
+   "feeNote": "費用請看簡章",
+   "team": "每隊 1～6 人",
+   "teamText": "每隊 1～6 人",
+   "note": "大專組，23:59 截止，可跨校跨系。",
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/t93vof597w0gr3igm5"
+    ]
+   ]
+  },
+  {
+   "id": "bh-duu0n64amt6qhpmwy8",
+   "date": "2026-11-29",
+   "name": "大專體總「運動一瞬間 7.0」影片徵選",
+   "cats": [
+    "motion"
+   ],
+   "fee": "free",
+   "feeNote": "費用請看簡章",
+   "teamText": "個人或團隊",
+   "note": "大專在學生都能投，不限科系。",
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/duu0n64amt6qhpmwy8"
+    ]
+   ]
+  },
+  {
+   "id": "bh-cwcw1l15c05m6vxuu5",
+   "date": "2026-11-29",
+   "name": "2026 三好 AI 創新應用競賽",
+   "cats": [
+    "ai",
+    "motion"
+   ],
+   "fee": "free",
+   "feeNote": "費用請看簡章",
+   "team": "團隊＋指導老師",
+   "teamText": "團隊＋指導老師",
+   "note": "有大專組，AI 數位內容創作（影片、動畫、MV、數位故事）。",
+   "tentative": true,
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/cwcw1l15c05m6vxuu5"
+    ]
+   ]
+  },
+  {
+   "id": "bh-9yg5x1mc7dg1nnindy",
+   "date": "2026-11-30",
+   "name": "第二屆「有長照挺你」青春影音徵件",
+   "cats": [
+    "motion"
+   ],
+   "fee": "free",
+   "feeNote": "費用請看簡章",
+   "teamText": "個人或最多 5 人",
+   "note": "大專在學生（不含博士生）。",
+   "tentative": true,
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/9yg5x1mc7dg1nnindy"
+    ]
+   ]
+  },
+  {
+   "id": "bh-vu2qznslq6m4yfww32",
+   "date": "2026-11-30",
+   "name": "「為地球種下一棵樹」植樹微電影競賽",
+   "cats": [
+    "motion"
+   ],
+   "fee": "free",
+   "feeNote": "費用請看簡章",
+   "team": "校園組每隊最多 6 人",
+   "teamText": "校園組每隊最多 6 人",
+   "note": "23:59 截止，要附在學證明。",
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/vu2qznslq6m4yfww32"
+    ]
+   ]
+  },
+  {
+   "id": "bh-fsav8do7sty5gli1xq",
+   "date": "2026-11-30",
+   "name": "【為桃園做研究】大專學生創新點子及研究實作競賽",
+   "cats": [
+    "think"
+   ],
+   "fee": "free",
+   "feeNote": "費用請看簡章",
+   "teamText": "個人或最多 5 人＋1 位指導老師",
+   "note": "提出解決桃園在地問題的點子，總獎金 145 萬。",
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/fsav8do7sty5gli1xq"
+    ]
+   ]
+  },
+  {
+   "id": "bh-diqz3uj5h0e2lsdz2d",
+   "date": "2026-11-30",
+   "name": "2027 嘉義市國際三分鐘影片大賽",
+   "cats": [
+    "motion"
+   ],
+   "fee": "free",
+   "feeNote": "費用請看簡章",
+   "teamText": "個人或團隊",
+   "note": "不限年齡國籍，主題不拘，總獎金 200 萬。",
+   "tentative": true,
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/diqz3uj5h0e2lsdz2d"
+    ]
+   ]
+  },
+  {
+   "id": "bh-66wbkcayby43vqsctl",
+   "date": "2026-11-30",
+   "name": "宮掌櫃 2026 模板設計競賽",
+   "cats": [
+    "brand"
+   ],
+   "fee": "free",
+   "feeNote": "費用請看簡章",
+   "teamText": "個人",
+   "note": "在宮掌櫃平台做一套網站模板，截圖做簡報參賽。",
+   "tentative": true,
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/66wbkcayby43vqsctl"
+    ]
+   ]
+  },
+  {
+   "id": "bh-er7elxu2is5l8cwbq9",
+   "date": "2026-11-30",
+   "name": "2027 基隆潮藝術 Open Call 藝術孵育計畫",
+   "cats": [
+    "think",
+    "brand"
+   ],
+   "fee": "free",
+   "feeNote": "費用請看簡章",
+   "teamText": "個人或團隊",
+   "note": "到基隆在地場域駐地創作，有說明會和現地踏查。",
+   "tentative": true,
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/er7elxu2is5l8cwbq9"
+    ]
+   ]
+  },
+  {
+   "id": "bh-o7zga5bjsid2ea0x1p",
+   "date": "2026-11-30",
+   "name": "英國未來藝術與設計獎",
+   "cats": [
+    "brand"
+   ],
+   "fee": "paid",
+   "feeNote": "要付報名費",
+   "teamText": "個人",
+   "note": "國際線上收費獎項。",
+   "tentative": true,
+   "warn": "收費型國際獎，含金量較低，投之前先查往年得獎作品。",
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/o7zga5bjsid2ea0x1p"
+    ]
+   ]
+  },
+  {
+   "id": "ai",
+   "date": "2026-12-01",
+   "fee": "free",
+   "feeNote": "簡章沒寫報名費",
+   "name": "全國 AI 專題創意競賽（跨領域組）",
+   "cats": [
+    "ai"
+   ],
+   "team": "團隊 2～6 人，最多 1 位資電系＋1～2 位老師",
+   "note": "國立臺南大學理工學院主辦。12/1 24:00 截止，用 Google 表單報名；檔名要改成「組別-組名-組長-文件名」。",
+   "links": [
+    [
+     "競賽網站",
+     "https://phpweb4.nutn.edu.tw/ilt/wordpress/?page_id=4308"
+    ],
+    [
+     "Google 表單報名",
+     "https://docs.google.com/forms/d/e/1FAIpQLSe4S__rnMaEcB2nBBSPE604yTeCG_-TJHzAb33X1J2oUo6cAg/viewform"
+    ]
+   ],
+   "files": [
+    [
+     "切結書",
+     "https://phpweb4.nutn.edu.tw/ilt/wordpress/wp-content/uploads/2026/08/ooo組組別-ooo組組名-ooo組長-切結書1150817.docx"
+    ],
+    [
+     "學生證正反面",
+     "https://phpweb4.nutn.edu.tw/ilt/wordpress/wp-content/uploads/2026/07/ooo組組別-ooo組組名-ooo組長-學生證正反面.docx"
+    ],
+    [
+     "作品說明書",
+     "https://phpweb4.nutn.edu.tw/ilt/wordpress/wp-content/uploads/2026/07/ooo組組別-ooo組組名-ooo組長-作品說明書.docx"
+    ],
+    [
+     "影片連結文件",
+     "https://phpweb4.nutn.edu.tw/ilt/wordpress/wp-content/uploads/2026/07/ooo組組別-ooo組組名-ooo組長-影片連結.docx"
+    ],
+    [
+     "附表 V1 正面表列",
+     "ai/eligible-list.pdf"
+    ]
+   ]
+  },
+  {
+   "id": "exposure",
+   "date": "2026-12-08",
+   "fee": "paid",
+   "feeNote": "線上投件收費，早鳥較便宜",
+   "name": "曝光一號自然攝影大賽",
+   "cats": [
+    "photo"
+   ],
+   "note": "國際線上比賽。早鳥到 11/11，常規收件到 12/8（不是之前寫的 12/3）。",
+   "links": [
+    [
+     "比賽頁面",
+     "https://www.exposureoneawards.com/contests/nature-photography-contest"
+    ],
+    [
+     "FAQ 與規則",
+     "https://www.exposureoneawards.com/faq"
+    ]
+   ]
+  },
+  {
+   "id": "bh-rnnultdre64ceji23q",
+   "date": "2026-12-08",
+   "name": "世界原創藝術大獎 World Original Arts Awards",
+   "cats": [
+    "brand"
+   ],
+   "fee": "paid",
+   "feeNote": "要付報名費",
+   "teamText": "個人",
+   "note": "國際線上收費獎項，分多個年齡組。",
+   "tentative": true,
+   "warn": "收費型國際獎，含金量較低。",
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/rnnultdre64ceji23q"
+    ]
+   ]
+  },
+  {
+   "id": "bh-uem5i3pfj47qef0nxl",
+   "date": "2026-12-10",
+   "name": "116 年度新竹市「策展人培力計畫」",
+   "cats": [
+    "think"
+   ],
+   "fee": "free",
+   "feeNote": "費用請看簡章",
+   "teamText": "個人或最多 3 人",
+   "note": "用 email 提案，初選後進策展工作坊。你的策展經驗很對口。",
+   "tentative": true,
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/uem5i3pfj47qef0nxl"
+    ]
+   ]
+  },
+  {
+   "id": "bh-fwzca0der9mymcpkrx",
+   "date": "2026-12-10",
+   "name": "2026 發現口湖之美攝影比賽",
+   "cats": [
+    "photo"
+   ],
+   "fee": "free",
+   "feeNote": "費用請看簡章",
+   "teamText": "個人",
+   "note": "不限國籍，主題雲林口湖。",
+   "tentative": true,
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/fwzca0der9mymcpkrx"
+    ]
+   ]
+  },
+  {
+   "id": "bh-r2fhkbc5a6x54xwsmc",
+   "date": "2026-12-10",
+   "name": "2026 農田水利之美全國攝影大賽",
+   "cats": [
+    "photo"
+   ],
+   "fee": "free",
+   "feeNote": "費用請看簡章",
+   "teamText": "個人",
+   "note": "主題是農田水利設施與景觀。",
+   "tentative": true,
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/r2fhkbc5a6x54xwsmc"
+    ]
+   ]
+  },
+  {
+   "id": "bh-wjr739hkqjnkvb8has",
+   "date": "2026-12-10",
+   "name": "世界攝影大獎賽 World Grand Prix Photography",
+   "cats": [
+    "photo"
+   ],
+   "fee": "paid",
+   "feeNote": "每件 10 英鎊",
+   "teamText": "個人",
+   "note": "國際線上收費獎項，件數不限。",
+   "tentative": true,
+   "warn": "收費型國際獎，含金量較低。",
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/wjr739hkqjnkvb8has"
+    ]
+   ]
+  },
+  {
+   "id": "taipei",
+   "date": "2026-12-15",
+   "fee": "paid",
+   "feeNote": "非會員 500 元・會員 300 元",
+   "name": "台北攝影獎（第 21 屆・2027）",
+   "cats": [
+    "photo"
+   ],
+   "note": "台北攝影學會主辦，彩色、黑白都收，每人最多 10 張。",
+   "warn": "第 21 屆截止日官網還沒寫清楚。去年是 12/15，這裡先照去年排，請打 02-2542-9968 確認。",
+   "tentative": true,
+   "links": [
+    [
+     "徵件公告",
+     "https://www.photo.org.tw/news-1-1.aspx?nid=1661"
+    ]
+   ],
+   "files": [
+    [
+     "參加總表及參加表 PDF",
+     "taipei/form-2027.pdf"
+    ],
+    [
+     "參加總表及參加表 Word",
+     "https://www.photo.org.tw/editorimg/files/2027%E5%8F%B0%E5%8C%97%E6%94%9D%E5%BD%B1%E7%8D%8E%E7%B8%BD%E8%A1%A8%E5%8F%8A%E5%A0%B1%E5%90%8D%E8%A1%A8.doc"
+    ]
+   ]
+  },
+  {
+   "id": "sony-film",
+   "date": "2026-12-15",
+   "fee": "free",
+   "name": "Sony 未來電影人獎",
+   "cats": [
+    "motion"
+   ],
+   "note": "台灣時間 12/15 21:00 截止。紀實（Non-Fiction）5～20 分鐘，用拍的，不用畫畫。",
+   "warn": "學生組只收有正式電影課程的學生；設計系建議投紀實組。",
+   "links": [
+    [
+     "官網",
+     "https://www.sonyfuturefilmmakerawards.com"
+    ],
+    [
+     "規則",
+     "https://www.sonyfuturefilmmakerawards.com/rules"
+    ]
+   ]
+  },
+  {
+   "id": "hult",
+   "date": "2026-12-15",
+   "fee": "free",
+   "name": "Hult Prize 2027",
+   "cats": [
+    "biz",
+    "think"
+   ],
+   "team": "團隊 3～4 人",
+   "note": "永續社會創業，冠軍 100 萬美元。官方還沒公布今年的截止日，12/15 是第三方網站寫的。也要看學校有沒有校內初賽。",
+   "tentative": true,
+   "links": [
+    [
+     "官網",
+     "https://www.hultprize.org"
+    ]
+   ]
+  },
+  {
+   "id": "bh-99e2bly7unmn70c56e",
+   "date": "2026-12-15",
+   "name": "2027 SYM 三陽創新設計大賽",
+   "cats": [
+    "brand",
+    "think"
+   ],
+   "fee": "free",
+   "feeNote": "免費報名",
+   "teamText": "個人或最多 5 人",
+   "note": "大專在學生和應屆畢業生，不限科系。",
+   "tentative": true,
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/99e2bly7unmn70c56e"
+    ]
+   ]
+  },
+  {
+   "id": "bh-ck8c0j6swjra3y2ny1",
+   "date": "2026-12-20",
+   "name": "第二屆建成扶輪社「台灣文化」短片大賽",
+   "cats": [
+    "motion"
+   ],
+   "fee": "free",
+   "feeNote": "費用請看簡章",
+   "teamText": "個人或最多 6 人",
+   "note": "大專在學生，12/20 17:00 截止，可跨校。",
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/ck8c0j6swjra3y2ny1"
+    ]
+   ]
+  },
+  {
+   "id": "bh-osnnmopk0l6tt256db",
+   "date": "2026-12-23",
+   "name": "2027 奇想設計大賽",
+   "cats": [
+    "think",
+    "brand"
+   ],
+   "fee": "free",
+   "feeNote": "費用請看簡章",
+   "teamText": "個人或最多 4 人",
+   "note": "技嘉教育基金會主辦，18 歲以上都能投，總獎金 100 萬。",
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/osnnmopk0l6tt256db"
+    ]
+   ]
+  },
+  {
+   "id": "bh-1voqkar608u1hs78vt",
+   "date": "2026-12-31",
+   "name": "2026 第十二屆青春有影大學盃",
+   "cats": [
+    "motion"
+   ],
+   "fee": "free",
+   "feeNote": "費用請看簡章",
+   "teamText": "個人或團隊",
+   "note": "23:59 截止，線上報名。",
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/1voqkar608u1hs78vt"
+    ]
+   ]
+  },
+  {
+   "id": "bh-86f1wvy84vtq29c10g",
+   "date": "2026-12-31",
+   "name": "全國科學議題桌遊設計創意實作競賽",
+   "cats": [
+    "brand",
+    "think"
+   ],
+   "fee": "free",
+   "feeNote": "費用請看簡章",
+   "team": "團隊，可跨校跨系",
+   "teamText": "團隊，可跨校跨系",
+   "note": "大專在學生，12/31 17:00 截止，決賽資料 5/5 交。",
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/86f1wvy84vtq29c10g"
+    ]
+   ]
+  },
+  {
+   "id": "sony-single",
+   "date": "2027-01-05",
+   "fee": "free",
+   "name": "Sony 世界攝影獎・單張",
+   "cats": [
+    "photo"
+   ],
+   "note": "任何人都能投，最多 3 張單張作品。首獎 5,000 美元。",
+   "links": [
+    [
+     "官網",
+     "https://www.worldphoto.org"
+    ]
+   ]
+  },
+  {
+   "id": "bh-5acvi8tp2637rn72s6",
+   "date": "2027-01-05",
+   "name": "2026 韌性不 NG｜迷因梗圖徵件大賽",
+   "cats": [
+    "brand"
+   ],
+   "fee": "free",
+   "feeNote": "費用請看簡章",
+   "teamText": "個人",
+   "note": "社會組 18 歲以上，手繪或電腦繪圖都可以，23:59 截止。",
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/5acvi8tp2637rn72s6"
+    ]
+   ]
+  },
+  {
+   "id": "bh-p21x575wy5iuqed6s1",
+   "date": "2027-01-08",
+   "name": "《青年就是「韌」性！》公民提案競賽",
+   "cats": [
+    "think"
+   ],
+   "fee": "free",
+   "feeNote": "費用請看簡章",
+   "team": "每隊 2～5 人",
+   "teamText": "每隊 2～5 人",
+   "note": "問題提案型比賽，1/8 12:00 截止，可跨校。",
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/p21x575wy5iuqed6s1"
+    ]
+   ]
+  },
+  {
+   "id": "bh-lr74iwl9ln9schuha3",
+   "date": "2027-01-10",
+   "name": "WFDA 世界前瞻設計獎",
+   "cats": [
+    "brand"
+   ],
+   "fee": "paid",
+   "feeNote": "要付報名費",
+   "teamText": "個人",
+   "note": "國際線上收費獎項。",
+   "tentative": true,
+   "warn": "收費型國際獎，含金量較低。",
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/lr74iwl9ln9schuha3"
+    ]
+   ]
+  },
+  {
+   "id": "bh-jhuoijcubcktx717ga",
+   "date": "2027-01-10",
+   "name": "「台灣觀巴」品牌形象短影音徵選",
+   "cats": [
+    "motion"
+   ],
+   "fee": "free",
+   "feeNote": "費用請看簡章",
+   "teamText": "個人或團隊",
+   "note": "全民都能投，要交 AI 使用狀況表。",
+   "tentative": true,
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/jhuoijcubcktx717ga"
+    ]
+   ]
+  },
+  {
+   "id": "sony-series",
+   "date": "2027-01-12",
+   "fee": "free",
+   "name": "Sony 世界攝影獎・組照",
+   "cats": [
+    "photo"
+   ],
+   "note": "5～10 張組照，首獎 2.5 萬美元。田野、人文紀錄最適合用組照講故事。",
+   "links": [
+    [
+     "官網",
+     "https://www.worldphoto.org"
+    ]
+   ]
+  },
+  {
+   "id": "bh-rncjqgw1l122nw8zx2",
+   "date": "2027-01-15",
+   "name": "2026-2027 環境關懷友善設計競賽",
+   "cats": [
+    "think",
+    "brand"
+   ],
+   "fee": "free",
+   "feeNote": "免報名費",
+   "teamText": "個人或團隊",
+   "note": "首獎 10 萬，1/15 12:00 截止。",
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/rncjqgw1l122nw8zx2"
+    ]
+   ]
+  },
+  {
+   "id": "bh-fer4o8xurg6sfxefgr",
+   "date": "2027-01-15",
+   "name": "朝陽科大應英系全國校園創意短片比賽",
+   "cats": [
+    "motion"
+   ],
+   "fee": "free",
+   "feeNote": "費用請看簡章",
+   "team": "每組 2～8 人",
+   "teamText": "每組 2～8 人",
+   "note": "大專在學生，1/15 12:00 截止，用 Google 表單報名。",
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/fer4o8xurg6sfxefgr"
+    ]
+   ]
+  },
+  {
+   "id": "if",
+   "date": "2027-02-03",
+   "fee": "free",
+   "name": "iF 學生設計獎 2027",
+   "cats": [
+    "think"
+   ],
+   "team": "個人或最多 4 人團隊",
+   "note": "針對聯合國永續目標提方案，用海報（可加影片）呈現。截止是德國時間，獎金池 5 萬歐元。",
+   "top": true,
+   "links": [
+    [
+     "官方頁面",
+     "https://ifdesign.com/en/if-design-student-award"
+    ],
+    [
+     "常見問題",
+     "https://ifdesign.com/en/if-design-student-award-faqs"
+    ]
+   ]
+  },
+  {
+   "id": "adc",
+   "date": "2027-02-20",
+   "fee": "paid",
+   "feeNote": "每件報名費，越晚越貴",
+   "name": "ADC 第 106 屆年度獎",
+   "cats": [
+    "brand",
+    "motion",
+    "photo"
+   ],
+   "note": "今年截止日還沒公布，照去年推估約 2/20。",
+   "tentative": true,
+   "warn": "主獎只收業界作品，學生作業不能投。學生請改投 Young Ones ADC。",
+   "links": [
+    [
+     "重要日期",
+     "https://adcawards.org/dates"
+    ],
+    [
+     "資格與規則",
+     "https://adcawards.org/eligibility/"
+    ],
+    [
+     "學生版 Young Ones ADC",
+     "https://youngones.org/categories/adc"
+    ]
+   ]
+  },
+  {
+   "id": "oneshow",
+   "date": "2027-02-20",
+   "fee": "paid",
+   "feeNote": "每件報名費，越晚越貴",
+   "name": "One Show 2027",
+   "cats": [
+    "brand",
+    "motion"
+   ],
+   "note": "今年日期還沒公布，照去年推估最終約 2/20。適合已落地的案子。",
+   "tentative": true,
+   "links": [
+    [
+     "截止日期",
+     "https://oneshow.org/dates/"
+    ],
+    [
+     "資格",
+     "https://www.oneshow.org/eligibility"
+    ]
+   ]
+  },
+  {
+   "id": "tdc",
+   "date": "2027-03-05",
+   "fee": "paid",
+   "feeNote": "每件報名費，早鳥最多省 50%",
+   "name": "TDC73 字體指導俱樂部",
+   "cats": [
+    "brand"
+   ],
+   "note": "早鳥 1/22、標準 2/12、最終 3/5。作品必須是 2026 年做的或發表的。",
+   "warn": "在學生要改投 Young Ones TDC，不能投主獎。",
+   "links": [
+    [
+     "報名網站",
+     "https://enter.tdc.org"
+    ],
+    [
+     "資格與規則",
+     "https://enter.tdc.org/eligibility/"
+    ],
+    [
+     "學生版 Young Ones TDC",
+     "https://youngones.org/categories/tdc/"
+    ]
+   ]
+  },
+  {
+   "id": "bh-1u323zekffo9uqb967",
+   "date": "2027-03-10",
+   "name": "瓩設計獎 kW Design Award 第 27 屆",
+   "cats": [
+    "brand",
+    "think"
+   ],
+   "fee": "free",
+   "feeNote": "費用請看簡章",
+   "teamText": "個人或最多 5 人",
+   "note": "有大專院校組，總獎金 71.5 萬。",
+   "tentative": true,
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/1u323zekffo9uqb967"
+    ]
+   ]
+  },
+  {
+   "id": "bh-pl99893z0uy22padag",
+   "date": "2027-03-10",
+   "name": "「中科拾光」中部科學園區攝影比賽",
+   "cats": [
+    "photo"
+   ],
+   "fee": "free",
+   "feeNote": "費用請看簡章",
+   "teamText": "個人",
+   "note": "不限國籍。",
+   "tentative": true,
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/pl99893z0uy22padag"
+    ]
+   ]
+  },
+  {
+   "id": "dad",
+   "date": "2027-03-11",
+   "fee": "free",
+   "feeNote": "填問卷可抵報名費",
+   "name": "D&AD 新血獎 2027",
+   "cats": [
+    "brand",
+    "think"
+   ],
+   "team": "個人或團隊",
+   "note": "品牌出真實題目。1 月底開放投件，3/11 17:00（英國時間）截止。",
+   "links": [
+    [
+     "官方頁面",
+     "https://www.dandad.org/awards/new-blood-awards"
+    ],
+    [
+     "2027 題目",
+     "https://www.dandad.org/awards/new-blood-awards/briefs-2027"
+    ]
+   ],
+   "files": [
+    [
+     "參賽須知 Essential info",
+     "dad/essential-info.pdf"
+    ],
+    [
+     "準備作品 Preparing your entries",
+     "dad/preparing-your-entries.pdf"
+    ],
+    [
+     "作品要點 Nailing your entry",
+     "dad/nailing-your-entry.pdf"
+    ],
+    [
+     "條款 Terms & conditions",
+     "dad/terms.pdf"
+    ],
+    [
+     "得獎的好處 What winning means",
+     "dad/what-winning-means.pdf"
+    ]
+   ]
+  },
+  {
+   "id": "bh-ivxyk6l5s86iageq0u",
+   "date": "2027-03-22",
+   "name": "中科大全國大專校院雙語創意短片競賽",
+   "cats": [
+    "motion"
+   ],
+   "fee": "free",
+   "feeNote": "費用請看簡章",
+   "team": "每組 2～7 人",
+   "teamText": "每組 2～7 人",
+   "note": "3/22 17:00 報名截止，12/15 起可繳件。",
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/ivxyk6l5s86iageq0u"
+    ]
+   ]
+  },
+  {
+   "id": "bh-7cs84kicsqvosswzll",
+   "date": "2027-03-31",
+   "name": "2026 受天宮影像創作大賽「看見・信仰」",
+   "cats": [
+    "photo",
+    "motion"
+   ],
+   "fee": "free",
+   "feeNote": "費用請看簡章",
+   "teamText": "個人",
+   "note": "攝影（3 張組圖）和短影音都有學生組，11/11 開始報名。",
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/7cs84kicsqvosswzll"
+    ]
+   ]
+  },
+  {
+   "id": "bh-tquo9h6lxaavwyhojw",
+   "date": "2027-03-31",
+   "name": "第四屆「善念點亮台灣」影音徵件",
+   "cats": [
+    "motion"
+   ],
+   "fee": "free",
+   "feeNote": "費用請看簡章",
+   "teamText": "個人或團體",
+   "note": "要在乾淨世界平台註冊頻道投稿。",
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/tquo9h6lxaavwyhojw"
+    ]
+   ]
+  },
+  {
+   "id": "dad-pro",
+   "date": "2027-04-14",
+   "fee": "paid",
+   "feeNote": "未來影響力類 £28～£40（越早越便宜）",
+   "name": "D&AD 大獎 2027（專業獎）・未來影響力類",
+   "cats": [
+    "think"
+   ],
+   "note": "這是 D&AD 的專業獎，不是新血獎。學生只能投「未來影響力 Future Impact」：還在開發中、還沒商業上市、能推動聯合國永續目標的原型或方案，要附概念驗證，作品要在 2026/1/1 之後完成或大改。早鳥 12/16 前交件打 7 折，2/17 前 8 折，3/17 前 9 折，最終 4/14。",
+   "warn": "其他類別（品牌、平面、攝影等）只收 2026/1/1 之後為真實客戶做、已商業發布、客戶付過款的作品；課堂作業和為比賽做的概念稿都不收。學生作品請以 3/11 的新血獎為主。",
+   "links": [
+    [
+     "D&AD Awards 官網",
+     "https://www.dandad.org/awards"
+    ]
+   ],
+   "files": [
+    [
+     "2027 報名手冊（簡體中文）",
+     "dad/entry-kit-2027-ch.pdf"
+    ]
+   ]
+  },
+  {
+   "id": "bh-64hpb2gj45zu3xldsq",
+   "date": "2027-04-30",
+   "name": "第五屆荊山新創獎 Jing Shan Creative Art Awards",
+   "cats": [
+    "brand"
+   ],
+   "fee": "free",
+   "feeNote": "免報名費",
+   "teamText": "個人或最多 5 人",
+   "note": "以夏荊山書畫為發想，作品須 2026/6/1 後完成，總獎金 110 萬。",
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/64hpb2gj45zu3xldsq"
+    ]
+   ]
+  },
+  {
+   "id": "bh-iu1oq8j61n0fky0kon",
+   "date": "2027-06-07",
+   "name": "第 13 屆 MATA 獎・原住民族主題影音競賽",
+   "cats": [
+    "motion"
+   ],
+   "fee": "free",
+   "feeNote": "費用請看簡章",
+   "teamText": "個人或最多 8 人",
+   "note": "大專在學生，原住民族主題影音或拍片企劃，總獎金 135 萬。",
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/iu1oq8j61n0fky0kon"
+    ]
+   ]
+  },
+  {
+   "id": "dft12",
+   "date": "2027-06-21",
+   "fee": "free",
+   "feeNote": "費用待第 12 屆簡章公布",
+   "name": "Design For Taiwan 第 12 屆社會創新挑戰賽",
+   "cats": [
+    "think",
+    "biz"
+   ],
+   "team": "團隊 3～6 人，1/3 以上是學生",
+   "tentative": true,
+   "note": "飛捷文教基金會主辦。從田野找社會痛點，經過初賽、複賽、決賽三階段，晉級就有設計思考工作坊和選修課。初賽晉級 5,000 元、複賽 10,000 元，決賽金獎 20 萬，總獎金超過 80 萬，優秀學員可以出國參訪。",
+   "warn": "第 11 屆已在 2026/6/21 截止。第 12 屆日期還沒公布，照今年推估約 3/10 開始報名、6/21 截止。",
+   "links": [
+    [
+     "DFT 第 11 屆頁面（第 12 屆會公告在這）",
+     "https://foundation.flytech.com.tw/aboutdft/2026dft/"
+    ]
+   ]
+  }
+ ],
+ "todos": [
+  {
+   "id": "team",
+   "text": "組隊：三創（11/20）和 AI 競賽（12/1）要隊友＋指導老師"
+  },
+  {
+   "id": "cert",
+   "text": "申請在學證明"
+  },
+  {
+   "id": "photos",
+   "text": "挑 Sony 學生組的照片（11/27）"
+  },
+  {
+   "id": "three",
+   "text": "選出 3 件主力作品，決定要補拍或重修的"
+  },
+  {
+   "id": "confirm",
+   "text": "確認三創、AI 競賽、Hult Prize 的費用和截止日"
+  },
+  {
+   "id": "sonyuni",
+   "text": "確認學校是不是 Sony 學生組的合作學校"
+  },
+  {
+   "id": "taipei",
+   "text": "打電話問台北攝影獎第 21 屆截止日（02-2542-9968）"
+  },
+  {
+   "id": "moc",
+   "text": "打開文化部公告 PDF，看獎勵金額"
+  },
+  {
+   "id": "dft",
+   "text": "2027 年 3 月去看 Design For Taiwan 第 12 屆報名，先找好 3～6 人隊友"
+  }
+ ]
+}

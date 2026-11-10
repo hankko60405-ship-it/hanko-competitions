@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Hanko 的設計、攝影、影像與提案比賽清單，依截止日排序。">
+<title>Hanko 參賽路線</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>
+/* Layout: an agency-portfolio contact sheet. Tiles sit on a black frame; giant uppercase type, neon lime fills, pill controls, rotated side labels. */
+:root{
+  /* Deliberately white in both themes, per the brief. */
+  --frame:#FFFFFF; --tile:#FFFFFF; --tile2:#F6F6F1; --ink:#111111; --muted:#7A7A72; --line:#DCDCD5;
+  --lime:#E4FF32; --on-lime:#111111; --hero:#FFFFFF; --hero-ink:#D3EF0A; --hero-soft:#7A7A72;
+  --display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --body:"Archivo","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  color-scheme:light;
+}
+
+*{box-sizing:border-box}
+body{margin:0}
+[hidden]{display:none!important}
+img{max-width:100%}
+body{background:var(--frame);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:16px 40px}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{text-wrap:balance}
+a{color:inherit;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+:focus-visible{outline:2px solid var(--lime);outline-offset:2px}
+.num{font-variant-numeric:tabular-nums}
+.caps{font-family:var(--display);font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase}
+
+.sheet{max-width:none;margin:0 auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.tile{background:var(--tile);padding:20px 22px;min-width:0;position:relative;overflow:hidden}
+.span2{grid-column:span 2}.span3{grid-column:1/-1}
+@media (max-width:860px){.sheet{grid-template-columns:minmax(0,1fr)}.span2,.span3{grid-column:auto}}
+
+.pill{display:inline-flex;align-items:center;gap:6px;border:1px solid currentColor;border-radius:999px;padding:2px 10px;font-size:12px;line-height:1.5;white-space:nowrap}
+.pill.fill{background:var(--lime);color:var(--on-lime);border-color:var(--lime)}
+
+/* Hero */
+.hero{background:var(--hero);color:var(--hero-ink);display:grid;gap:28px;padding:18px 22px 20px}
+.hero .bar{display:flex;justify-content:space-between;align-items:center;gap:12px;color:var(--hero-soft)}
+.hero .bar .pill.fill{color:var(--on-lime)}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(46px,8.6vw,118px);line-height:.92;letter-spacing:-.02em;text-transform:uppercase;max-width:9.5em}
+.hero .zh{font-size:clamp(18px,2.4vw,24px);font-weight:500;color:var(--ink)}
+.hero .foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--hero-soft)}
+.tri{position:absolute;right:28px;top:56px;width:clamp(70px,12vw,150px);height:auto;pointer-events:none}
+@media (max-width:560px){.tri{display:none}}
+
+/* Next deadline: lime menu card */
+.nextwrap{display:grid;grid-template-columns:minmax(0,1fr);align-content:space-between;gap:20px;background:var(--tile)}
+.hero{grid-template-columns:minmax(0,1fr)}
+.mhead h2{min-width:0;overflow:hidden}
+.nextcard{background:var(--lime);color:var(--on-lime);border-radius:14px;padding:16px 18px;display:grid;gap:4px}
+.nextcard .d{font-family:var(--display);font-weight:400;font-size:72px;line-height:.95;letter-spacing:-.03em}
+.nextcard .n{font-weight:600;font-size:16px;line-height:1.4}
+.upnext{list-style:none;margin:10px 0 0;padding:10px 0 0;border-top:1px solid var(--on-lime);display:grid;gap:4px;font-size:14px;text-transform:none}
+.upnext li{display:flex;justify-content:space-between;gap:10px}
+.upnext li span:last-child{font-variant-numeric:tabular-nums;white-space:nowrap}
+.bigword{font-family:var(--display);font-weight:400;font-size:clamp(64px,9vw,120px);line-height:.8;letter-spacing:-.03em;text-transform:uppercase;white-space:nowrap;margin-right:-40px}
+.bigword .ast{color:var(--lime);-webkit-text-stroke:1px var(--ink)}
+
+/* Intro + filters */
+.intro{display:grid;gap:16px;align-content:start}
+.intro p{font-size:clamp(17px,1.9vw,21px);line-height:1.45;max-width:34em}
+.tally{display:flex;flex-wrap:wrap;gap:8px}
+.filterbar{display:grid;gap:12px}
+.frow{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}
+.frow .caps{width:4.5em;color:var(--muted);flex:none}
+.filters{display:flex;flex-wrap:wrap;gap:6px}
+.filters button{font:inherit;font-size:13px;color:var(--ink);background:transparent;border:1px solid var(--ink);border-radius:999px;padding:4px 14px;cursor:pointer}
+.filters button:hover{background:var(--tile2)}
+.filters button[aria-pressed="true"]{background:var(--lime);border-color:var(--lime);color:var(--on-lime)}
+
+/* Month tiles */
+.month{display:grid;gap:0;padding:0}
+.mhead{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;padding:18px 22px 14px;border-bottom:1px solid var(--line);overflow:hidden}
+.mhead h2{font-family:var(--display);font-weight:400;font-size:clamp(72px,14vw,190px);line-height:.78;letter-spacing:-.04em;text-transform:uppercase;white-space:nowrap}
+.mhead h2 .ast{color:var(--lime);-webkit-text-stroke:1px var(--ink);font-size:.6em;vertical-align:.25em;margin-left:.1em}
+.mhead .meta{text-align:right;color:var(--muted);flex:none}
+.entry{display:grid;grid-template-columns:96px minmax(0,1fr) 180px;gap:20px;padding:20px 22px;border-bottom:1px solid var(--line);background:var(--tile)}
+.entry:last-child{border-bottom:0}
+.entry.past{opacity:.45}
+.entry.done{background:var(--tile2)}
+.date{display:grid;align-content:start;gap:4px}
+.date .day{font-family:var(--display);font-weight:300;font-size:60px;line-height:.85;letter-spacing:-.03em}
+.date .caps{color:var(--muted)}
+.ebody{min-width:0;display:grid;gap:10px;align-content:start}
+.ebody h3{font-size:19px;font-weight:500;line-height:1.35}
+.ebody h3 .t{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+.ebody h3 .pill{margin-left:8px;vertical-align:3px;font-weight:500}
+.credits{display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 12px;margin:0;font-size:14px}
+.credits dt{color:var(--muted)}
+.credits dd{margin:0}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.side{display:grid;gap:10px;justify-items:end;align-content:start}
+.left{font-size:13px;font-weight:500}
+.left.hot{background:var(--lime);color:var(--on-lime);border-color:var(--lime)}
+.left.soon{color:var(--ink)}
+.left.far{color:var(--muted);border-color:var(--line)}
+.left.over{color:var(--muted);border-color:var(--line);text-decoration:line-through}
+select{font:inherit;font-size:13px;color:var(--ink);background:transparent;border:1px solid var(--ink);border-radius:999px;padding:5px 30px 5px 14px;width:100%;max-width:170px;appearance:none;cursor:pointer;
+  background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%);
+  background-position:calc(100% - 16px) 52%,calc(100% - 11px) 52%;background-size:5px 5px;background-repeat:no-repeat}
+select.s-sent,select.s-short,select.s-win{background-color:var(--lime);color:var(--on-lime);border-color:var(--lime)}
+select.s-prep{border-style:dashed}
+@media (max-width:640px){
+  .entry{grid-template-columns:64px minmax(0,1fr);gap:14px}
+  .date .day{font-size:44px}
+  .side{grid-column:1/-1;grid-template-columns:auto minmax(0,1fr);justify-items:start;align-items:center}
+  select{max-width:none}
+}
+.empty{padding:22px;color:var(--muted)}
+.warn{font-size:13px;background:var(--tile2);border-left:3px solid var(--lime);padding:6px 10px}
+.docs{border-top:1px solid var(--line);padding-top:10px}
+.docs summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;border:1px solid var(--ink);border-radius:999px;padding:4px 14px}
+.docs summary::-webkit-details-marker{display:none}
+.docs summary::after{content:"+";font-weight:400}
+.docs[open] summary{background:var(--lime);border-color:var(--lime);color:var(--on-lime)}
+.docs[open] summary::after{content:"–"}
+.docbox{display:grid;gap:8px;margin-top:12px}
+.docbox .sub{color:var(--muted)}
+.doclist{list-style:none;margin:0;padding:0;display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.doclist li{background:var(--tile);display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 12px;font-size:14px;min-width:0}
+.doclist a{display:inline-flex;gap:10px;align-items:center;min-width:0;overflow-wrap:anywhere}
+.doclist .ext{font-family:var(--display);font-size:10px;font-weight:600;letter-spacing:.06em;border:1px solid var(--ink);border-radius:999px;padding:0 6px;text-decoration:none;flex:none}
+.doclist .hint{color:var(--muted);font-size:12px;flex:none}
+@media (max-width:640px){.doclist .hint{display:none}}
+
+/* Info tiles with rotated side labels */
+.info{display:flex;gap:18px}
+.vlabel{writing-mode:vertical-rl;transform:rotate(180deg);color:var(--muted);flex:none;white-space:nowrap}
+.info .inner{min-width:0;flex:1;display:grid;gap:14px;align-content:start}
+.info h2{font-family:var(--display);font-weight:400;font-size:30px;line-height:1;letter-spacing:-.01em;text-transform:uppercase}
+.info h2 small{display:block;font-family:var(--body);font-size:14px;font-weight:500;letter-spacing:0;text-transform:none;margin-top:6px}
+.todo{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.todo label{display:flex;gap:10px;align-items:flex-start;cursor:pointer;font-size:14px}
+.todo input{appearance:none;flex:none;width:18px;height:18px;border:1px solid var(--ink);border-radius:50%;margin-top:2px;cursor:pointer;display:grid;place-content:center}
+.todo input:checked{background:var(--lime);border-color:var(--lime)}
+.todo input:checked::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--on-lime)}
+.todo input:checked+span{text-decoration:line-through;color:var(--muted)}
+.plan{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.plan li{display:grid;grid-template-columns:48px minmax(0,1fr);gap:10px;font-size:14px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.plan li:last-child{border-bottom:0}
+.plan b{font-family:var(--display);font-weight:500}
+.rules{margin:0;padding:0;list-style:none;display:grid;gap:10px;font-size:14px}
+.rules b{font-weight:600}
+.cols2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 24px}
+@media (max-width:640px){.cols2{grid-template-columns:1fr}}
+.small{font-size:13px;color:var(--muted)}
+.syncbar{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted);padding:14px 22px}
+@media (prefers-reduced-motion:no-preference){.filters button,select{transition:background-color .15s}}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <header class="tile hero span2">
+    <div class="bar"><span class="pill fill caps">Hanko</span><span class="caps">Entry route 26—27</span></div>
+    <svg class="tri" viewBox="0 0 100 90" aria-hidden="true"><polygon points="50,4 96,86 4,86" fill="none" stroke="#D3EF0A" stroke-width="2"/></svg>
+    <div style="display:grid;gap:14px">
+      <h1>Find your next award</h1>
+      <p class="zh">Hanko 參賽路線</p>
+    </div>
+    <div class="foot caps"><span>Season 2026—2027</span><span>(Scroll)</span><span id="count-label">16 entries</span></div>
+  </header>
+
+  <aside class="tile nextwrap" aria-live="polite">
+    <div class="nextcard">
+      <span class="caps">Next deadline</span>
+      <span class="d num" id="next-d">—</span>
+      <span class="n" id="next-n">計算中</span>
+      <ul class="upnext" id="upnext"></ul>
+    </div>
+    <div class="bigword" aria-hidden="true">Ent<span class="ast">✳</span>ry</div>
+  </aside>
+
+  <section class="tile intro span2">
+    <span class="caps" style="color:var(--muted)">About this route</span>
+    <p>依截止日排好的設計、攝影、設計思考比賽，免費和付費分開標示。每場都能改狀態，進度會自動存下來。</p>
+    <p class="small">目前收錄 <b id="data-count" class="num">—</b> 場，資料最後更新 <b id="data-updated" class="num">—</b>。「我的精選」是逐一核對過官網的；「獎金獵人新增」從獎金獵人挑出，簡章請點進該頁。標「約」的是推估日期。</p>
+    <div class="tally" id="tally"></div>
+  </section>
+
+  <section class="tile filterbar">
+    <span class="caps" style="color:var(--muted)">Filter</span>
+    <div class="frow"><span class="caps">來源</span><nav class="filters" id="src-filters" aria-label="依來源篩選"></nav></div>
+    <div class="frow"><span class="caps">費用</span><nav class="filters" id="fee-filters" aria-label="依費用篩選"></nav></div>
+    <div class="frow"><span class="caps">類型</span><nav class="filters" id="filters" aria-label="依類型篩選"></nav></div>
+  </section>
+
+  <main id="timeline" class="span3" style="display:grid;gap:1px;background:var(--line)"></main>
+
+  <section class="tile info">
+    <span class="vlabel caps">01 — To do</span>
+    <div class="inner">
+      <h2>This week<small>這週要做的事</small></h2>
+      <ul class="todo" id="todos"></ul>
+    </div>
+  </section>
+
+  <section class="tile info">
+    <span class="vlabel caps">02 — Schedule</span>
+    <div class="inner">
+      <h2>Schedule<small>時程規劃</small></h2>
+      <ol class="plan">
+        <li><b>11月</b><span>組隊、選 3 件主力作品；投三創、華燦獎、Sony 學生組</span></li>
+        <li><b>12月</b><span>投 AI 競賽、Sony 未來電影人、Hult Prize；做案例版面、影片、英文說明</span></li>
+        <li><b>1月</b><span>投 Sony 單張、組照；D&amp;AD 開放投件</span></li>
+        <li><b>2月</b><span>投 iF 學生設計獎；有預算再投 ADC、One Show、TDC</span></li>
+        <li><b>3月</b><span>投 D&amp;AD 新血獎</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="tile info">
+    <span class="vlabel caps">03 — After winning</span>
+    <div class="inner">
+      <h2>Award bonus<small>得獎後：文化部國際競賽獲獎者獎勵</small></h2>
+      <p style="font-size:14px">在國際比賽得獎後，可以再跟文化部申請獎勵金。個人可申請，得獎時間要在當年度或前一年度，比賽要國際定期舉辦或至少 10 國參加。今年受理到 <b class="num">11/30</b>，這輪還用不到；2027 年若在 iF、D&amp;AD、Sony 得獎，2027、2028 年秋天都能申請。</p>
+      <p class="small">文創發展司 李先生 02-8512-6560 · 獎金見公告 PDF · <a href="https://grants.moc.gov.tw/Web/PointDetail.jsp?__viewstate=Cm1ou+jpen2gRsrb7EaY6c5aStH2A4xO7oJCOHz4L408lIe%2Fefs7z+WTtc3mBJBkYvZhpy%2FMg9Q%3D" target="_blank" rel="noopener">文化部獎補助資訊網</a></p>
+    </div>
+  </section>
+
+  <section class="tile info span2">
+    <span class="vlabel caps">04 — Strategy</span>
+    <div class="inner">
+      <h2>How to win<small>拿獎的策略</small></h2>
+      <ul class="rules cols2">
+        <li><b>選對戰場：</b>熱門類別最擠，找自己突出、投件數少的細分類別。</li>
+        <li><b>一份研究、兩場比賽：</b>同一個田調題目，拍成紀實短片投 Sony 未來電影人，做成解方投 iF 學生獎。</li>
+        <li><b>5 秒打動評審：</b>第一張圖就要讓人停下來，一件作品只講一個概念。</li>
+        <li><b>你的優勢：</b>田調能帶真實訪談和現場觀察去比，能講出「為什麼」。</li>
+        <li><b>包裝跟作品一樣重要：</b>寫清楚問題、解法、結果，有成效數字一定放。</li>
+        <li><b>攝影不要一稿多投：</b>每場用不同照片，逐條看簡章。</li>
+        <li><b>找人測 5 秒：</b>不熟你作品的人記不住的，評審也記不住。</li>
+        <li><b>忙不過來時：</b>iF 學生獎 &gt; Sony &gt; 華燦獎 &gt; 其他。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="tile info">
+    <span class="vlabel caps">05 — Inspiration</span>
+    <div class="inner">
+      <h2>Moodboard<small>靈感參考</small></h2>
+      <p style="font-size:14px"><a href="https://tas2r38.com/" target="_blank" rel="noopener">TAS2R38</a> 設計靈感圖庫。可看 Identity（品牌識別）、Typography、Posters、Swiss design（平面）、Filmic、Photo（攝影）、Interfaces（AI 與提案視覺）。只拿來找方向，不要照抄。</p>
+    </div>
+  </section>
+
+  <footer class="tile syncbar span3 caps"><span id="sync">進度儲存：連線中…</span><span>Hanko · Entry route</span></footer>
+</div>
+
+<script>
+let ENTRIES=[];
+const FEES={all:"全部",free:"免費",paid:"付費"};
+const CATS={all:"全部",photo:"攝影",think:"設計思考",brand:"品牌・平面",motion:"動態",ai:"AI",biz:"創新創業",team:"團隊賽"};
+const STATUS=[["todo","未開始"],["prep","準備中"],["sent","已投件"],["short","入圍"],["win","得獎"],["skip","放棄"]];
+const MONTHS=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+let TODOS=[];
+
+let state={status:{},todos:{}};
+const openDocs=new Set();
+let filter="all",fee="all",src="all";
+const SRCS={all:"全部",mine:"我的精選",bh:"獎金獵人新增"};
+let save=()=>{};
+
+function taipeiToday(){
+  const p=new Intl.DateTimeFormat("en-CA",{timeZone:"Asia/Taipei",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());
+  return new Date(p+"T00:00:00Z");
+}
+function daysLeft(d){return Math.round((new Date(d+"T00:00:00Z")-taipeiToday())/864e5)}
+function leftLabel(n){
+  if(n<0)return["已截止","over"];
+  if(n===0)return["今天截止","hot"];
+  return["D-"+n,n<=14?"hot":n<=45?"soon":"far"];
+}
+const finished=s=>["sent","short","win","skip"].includes(s);
+
+function el(tag,attrs={},...kids){
+  const e=document.createElement(tag);
+  for(const[k,v]of Object.entries(attrs)){if(k==="class")e.className=v;else if(k==="text")e.textContent=v;else e.setAttribute(k,v)}
+  for(const c of kids)if(c)e.append(typeof c==="string"?document.createTextNode(c):c);
+  return e;
+}
+
+function renderFilters(){
+  const fill=(id,opts,cur,set)=>{
+    const nav=document.getElementById(id);nav.textContent="";
+    for(const[k,v]of Object.entries(opts)){
+      const b=el("button",{type:"button","aria-pressed":String(cur===k),text:v});
+      b.onclick=()=>{set(k);renderFilters();renderTimeline()};
+      nav.append(b);
+    }
+  };
+  fill("fee-filters",FEES,fee,k=>fee=k);
+  fill("src-filters",SRCS,src,k=>src=k);
+  fill("filters",CATS,filter,k=>filter=k);
+}
+
+function renderTimeline(){
+  const main=document.getElementById("timeline");main.textContent="";
+  const list=ENTRIES.filter(e=>(filter==="all"||(filter==="team"?!!e.team:e.cats.includes(filter)))&&(fee==="all"||e.fee===fee)&&(src==="all"||(src==="bh")===!!e.src));
+  document.getElementById("count-label").textContent=list.length+" entries";
+  if(!list.length){main.append(el("div",{class:"tile empty",text:"這個組合目前沒有比賽，換個篩選看看。"}));return}
+  const groups=new Map();
+  for(const e of list){const k=e.date.slice(0,7);if(!groups.has(k))groups.set(k,[]);groups.get(k).push(e)}
+  for(const[k,items]of groups){
+    const[y,m]=k.split("-");
+    const sec=el("section",{class:"tile month","aria-label":y+" 年 "+Number(m)+" 月"});
+    const h=el("h2",{},MONTHS[Number(m)-1],el("span",{class:"ast","aria-hidden":"true",text:"✳"}));
+    sec.append(el("div",{class:"mhead"},h,el("div",{class:"meta caps"},el("div",{text:y}),el("div",{text:Number(m)+" 月 · "+items.length+" 場"}))));
+    for(const e of items){
+      const n=daysLeft(e.date);const[lt,lc]=leftLabel(n);
+      const s=state.status[e.id]||"todo";
+      const card=el("article",{class:"entry"+(n<0?" past":"")+(finished(s)&&s!=="skip"?" done":"")});
+      const[,mm,dd]=e.date.split("-");
+      card.append(el("div",{class:"date num"},
+        el("span",{class:"day",text:String(Number(dd)).padStart(2,"0")}),
+        el("span",{class:"caps",text:MONTHS[Number(mm)-1]+(e.tentative?" · 約":"")})));
+      const title=el("h3",{},el("span",{class:"t",text:e.name}));
+      if(e.top)title.append(el("span",{class:"pill fill",text:"第一優先"}));
+      const tags=el("div",{class:"tags"});
+      tags.append(el("span",{class:"pill"+(e.fee==="free"?" fill":""),text:e.fee==="free"?"FREE":"PAID"}));
+      for(const c of e.cats)tags.append(el("span",{class:"pill",style:"color:var(--muted)",text:CATS[c]}));
+      if(e.src)tags.append(el("span",{class:"pill",style:"color:var(--muted);border-style:dashed",text:"來自"+e.src}));
+      const dl=el("dl",{class:"credits"},
+        el("dt",{text:"費用"}),el("dd",{text:e.feeNote||FEES[e.fee]}),
+        el("dt",{text:"參賽"}),el("dd",{text:e.team||e.teamText||"個人"}),
+        el("dt",{text:"備註"}),el("dd",{text:e.note}));
+      const body=el("div",{class:"ebody"},title,tags,dl);
+      if(e.warn)body.append(el("p",{class:"warn"},el("b",{text:"注意 "}),e.warn));
+      const nf=(e.files||[]).length,nl=(e.links||[]).length;
+      const det=el("details",{class:"docs",id:"docs-"+e.id});
+      if(openDocs.has(e.id))det.open=true;
+      det.ontoggle=()=>{det.open?openDocs.add(e.id):openDocs.delete(e.id)};
+      det.append(el("summary",{},el("span",{text:nf?"報名檔案 "+nf+" 份・官網連結":"官網連結（沒有下載檔，報名都在網站上）"})));
+      const box=el("div",{class:"docbox"});
+      if(nf){
+        const ul=el("ul",{class:"doclist"});
+        for(const[label,path]of e.files){
+          const remote=/^https?:/.test(path);
+          const ext=path.split("?")[0].split(".").pop().toUpperCase();
+          ul.append(el("li",{},el("a",{href:remote?path:"files/"+path,target:"_blank",rel:"noopener"},el("span",{class:"ext",text:ext}),label),el("span",{class:"hint",text:ext==="PDF"?"新分頁開啟":"從官網下載，用 Word 開"})));
+        }
+        box.append(el("div",{class:"caps sub",text:"Files"}),ul);
+      }
+      if(nl){
+        const ul=el("ul",{class:"doclist"});
+        for(const[label,url]of e.links)ul.append(el("li",{},el("a",{href:url,target:"_blank",rel:"noopener"},el("span",{class:"ext",text:"↗"}),label)));
+        box.append(el("div",{class:"caps sub",text:"Links"}),ul);
+      }
+      det.append(box);body.append(det);
+      card.append(body);
+      const sel=el("select",{id:"st-"+e.id,"aria-label":e.name+" 狀態",class:"s-"+s});
+      for(const[v,t]of STATUS){const o=el("option",{value:v,text:t});if(v===s)o.selected=true;sel.append(o)}
+      sel.onchange=()=>{state.status[e.id]=sel.value;save();renderAll()};
+      card.append(el("div",{class:"side"},el("span",{class:"pill left num "+lc,text:lt}),sel));
+      sec.append(card);
+    }
+    main.append(sec);
+  }
+}
+
+function renderNext(){
+  const up=ENTRIES.filter(e=>daysLeft(e.date)>=0&&!finished(state.status[e.id]));
+  const d=document.getElementById("next-d"),n=document.getElementById("next-n"),ul=document.getElementById("upnext");
+  ul.textContent="";
+  if(!up.length){d.textContent="✓";n.textContent="全部處理完了";return}
+  const e=up[0],k=daysLeft(e.date);
+  d.textContent=k===0?"今天":"D-"+k;
+  n.textContent=up.filter(x=>x.date===e.date).map(x=>x.name).join("、");
+  const later=up.filter(x=>x.date!==e.date).slice(0,3);
+  for(const x of later){const[,mm,dd]=x.date.split("-");ul.append(el("li",{},el("span",{text:x.name}),el("span",{text:Number(mm)+"/"+Number(dd)})))}
+  ul.hidden=!later.length;
+}
+
+function renderTally(){
+  const t=document.getElementById("tally");t.textContent="";
+  for(const k of["free","paid"])t.append(el("span",{class:"pill"+(k==="free"?" fill":"")},FEES[k]+" ",el("b",{class:"num",text:String(ENTRIES.filter(e=>e.fee===k).length)})));
+  const c={};for(const e of ENTRIES){const s=state.status[e.id]||"todo";c[s]=(c[s]||0)+1}
+  for(const[v,label]of STATUS){if(c[v])t.append(el("span",{class:"pill",style:"color:var(--muted)"},label+" ",el("b",{class:"num",text:String(c[v])})))}
+}
+
+function renderTodos(){
+  const ul=document.getElementById("todos");ul.textContent="";
+  for(const[k,t]of TODOS){
+    const cb=el("input",{type:"checkbox",id:"todo-"+k});cb.checked=!!state.todos[k];
+    cb.onchange=()=>{state.todos[k]=cb.checked;save()};
+    ul.append(el("li",{},el("label",{for:"todo-"+k},cb,el("span",{text:t}))));
+  }
+}
+function renderAll(){renderNext();renderTally();renderTimeline()}
+function setSync(t){document.getElementById("sync").textContent="進度儲存："+t}
+
+function useLocal(note){
+  try{const raw=localStorage.getItem("hanko-progress");if(raw){const p=JSON.parse(raw);state={status:p.status||{},todos:p.todos||{}}}}catch(e){}
+  save=()=>{try{localStorage.setItem("hanko-progress",JSON.stringify(state))}catch(e){}};
+  setSync(note);renderAll();renderTodos();
+}
+
+renderFilters();renderAll();renderTodos();
+fetch("data/competitions.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{
+  ENTRIES=d.competitions.slice().sort((a,b)=>a.date.localeCompare(b.date));
+  TODOS=d.todos.map(t=>[t.id,t.text]);
+  document.getElementById("data-updated").textContent=d.updated;
+  document.getElementById("data-count").textContent=ENTRIES.length;
+  renderAll();renderTodos();
+}).catch(()=>{document.getElementById("timeline").replaceChildren(el("div",{class:"tile empty",text:"比賽資料讀不到，請重新整理頁面。"}))});
+
+(async()=>{
+  const db=window.claude?await window.claude.use("db").catch(()=>null):null;
+  if(!db){useLocal("只存在這個瀏覽器");return}
+  const ref=db.doc("progress/main");
+  let writing=false,pending=false,readOnly=false;
+  save=async()=>{
+    if(readOnly)return;
+    if(writing){pending=true;return}
+    writing=true;setSync("儲存中…");
+    try{await ref.set({status:{...state.status},todos:{...state.todos}});setSync("已同步")}
+    catch(e){if(e&&e.code==="invalid_argument"){readOnly=true;setSync("你只有檢視權限，改動不會存")}else setSync("沒存到，稍後再改一次試試")}
+    writing=false;if(pending){pending=false;save()}
+  };
+  const timer=setTimeout(()=>setSync("暫時連不上，顯示的可能不是最新進度"),10000);
+  ref.onSnapshot(snap=>{
+    if(!snap.metadata.fromCache)clearTimeout(timer);
+    if(snap.metadata.hasPendingWrites)return;
+    const d=snap.exists?snap.data():{};
+    state={status:{...(d.status||{})},todos:{...(d.todos||{})}};
+    if(!snap.metadata.fromCache)setSync("已同步");
+    renderAll();renderTodos();
+  },()=>{clearTimeout(timer);useLocal("連線中斷，暫存在這個瀏覽器")});
+})();
+</script>
+</body>
+</html>
