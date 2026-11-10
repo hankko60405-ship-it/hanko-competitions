@@ -166,7 +166,7 @@ select.s-prep{border-style:dashed}
       <h1>Find your next award</h1>
       <p class="zh">Hanko 參賽路線</p>
     </div>
-    <div class="foot caps"><span>Season 2026—2027</span><span>(Scroll)</span><span id="count-label">16 entries</span></div>
+    <div class="foot caps"><span>Season 2026—2027</span><span id="count-label">16 entries</span></div>
   </header>
 
   <aside class="tile nextwrap" aria-live="polite">
@@ -190,6 +190,7 @@ select.s-prep{border-style:dashed}
     <span class="caps" style="color:var(--muted)">Filter</span>
     <div class="frow"><span class="caps">來源</span><nav class="filters" id="src-filters" aria-label="依來源篩選"></nav></div>
     <div class="frow"><span class="caps">費用</span><nav class="filters" id="fee-filters" aria-label="依費用篩選"></nav></div>
+    <div class="frow"><span class="caps">進度</span><nav class="filters" id="status-filters" aria-label="依參賽進度篩選"></nav></div>
     <div class="frow"><span class="caps">類型</span><nav class="filters" id="filters" aria-label="依類型篩選"></nav></div>
   </section>
 
@@ -264,7 +265,7 @@ let TODOS=[];
 
 let state={status:{},todos:{}};
 const openDocs=new Set();
-let filter="all",fee="all",src="all";
+let filter="all",fee="all",src="all",stat="all";
 const SRCS={all:"全部",going:"我要報名",mine:"我的精選",bh:"獎金獵人新增"};
 let save=()=>{};
 
@@ -298,12 +299,13 @@ function renderFilters(){
   };
   fill("fee-filters",FEES,fee,k=>fee=k);
   fill("src-filters",SRCS,src,k=>src=k);
+  fill("status-filters",Object.fromEntries([["all","全部"],...STATUS]),stat,k=>stat=k);
   fill("filters",CATS,filter,k=>filter=k);
 }
 
 function renderTimeline(){
   const main=document.getElementById("timeline");main.textContent="";
-  const list=ENTRIES.filter(e=>(filter==="all"||(filter==="team"?!!e.team:e.cats.includes(filter)))&&(fee==="all"||e.fee===fee)&&(src==="all"||(src==="going"?!!e.going:(src==="bh")===!!e.src)));
+  const list=ENTRIES.filter(e=>(filter==="all"||(filter==="team"?!!e.team:e.cats.includes(filter)))&&(fee==="all"||e.fee===fee)&&(src==="all"||(src==="going"?!!e.going:(src==="bh")===!!e.src))&&(stat==="all"||(state.status[e.id]||"todo")===stat));
   document.getElementById("count-label").textContent=list.length+" entries";
   if(!list.length){main.append(el("div",{class:"tile empty",text:"這個組合目前沒有比賽，換個篩選看看。"}));return}
   const groups=new Map();
