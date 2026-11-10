@@ -40,6 +40,7 @@ a{color:inherit;text-decoration:underline;text-underline-offset:3px;text-decorat
 
 .pill{display:inline-flex;align-items:center;gap:6px;border:1px solid currentColor;border-radius:999px;padding:2px 10px;font-size:12px;line-height:1.5;white-space:nowrap}
 .pill.fill{background:var(--lime);color:var(--on-lime);border-color:var(--lime)}
+.pill.going{background:var(--ink);color:var(--tile);border-color:var(--ink)}
 
 /* Hero */
 .hero{background:var(--hero);color:var(--hero-ink);display:grid;gap:28px;padding:18px 22px 20px}
@@ -264,7 +265,7 @@ let TODOS=[];
 let state={status:{},todos:{}};
 const openDocs=new Set();
 let filter="all",fee="all",src="all";
-const SRCS={all:"全部",mine:"我的精選",bh:"獎金獵人新增"};
+const SRCS={all:"全部",going:"我要報名",mine:"我的精選",bh:"獎金獵人新增"};
 let save=()=>{};
 
 function taipeiToday(){
@@ -302,7 +303,7 @@ function renderFilters(){
 
 function renderTimeline(){
   const main=document.getElementById("timeline");main.textContent="";
-  const list=ENTRIES.filter(e=>(filter==="all"||(filter==="team"?!!e.team:e.cats.includes(filter)))&&(fee==="all"||e.fee===fee)&&(src==="all"||(src==="bh")===!!e.src));
+  const list=ENTRIES.filter(e=>(filter==="all"||(filter==="team"?!!e.team:e.cats.includes(filter)))&&(fee==="all"||e.fee===fee)&&(src==="all"||(src==="going"?!!e.going:(src==="bh")===!!e.src)));
   document.getElementById("count-label").textContent=list.length+" entries";
   if(!list.length){main.append(el("div",{class:"tile empty",text:"這個組合目前沒有比賽，換個篩選看看。"}));return}
   const groups=new Map();
@@ -322,6 +323,7 @@ function renderTimeline(){
         el("span",{class:"caps",text:MONTHS[Number(mm)-1]+(e.tentative?" · 約":"")})));
       const title=el("h3",{},el("span",{class:"t",text:e.name}));
       if(e.top)title.append(el("span",{class:"pill fill",text:"第一優先"}));
+      if(e.going)title.append(el("span",{class:"pill going",text:"我要報名"}));
       const tags=el("div",{class:"tags"});
       tags.append(el("span",{class:"pill"+(e.fee==="free"?" fill":""),text:e.fee==="free"?"FREE":"PAID"}));
       for(const c of e.cats)tags.append(el("span",{class:"pill",style:"color:var(--muted)",text:CATS[c]}));

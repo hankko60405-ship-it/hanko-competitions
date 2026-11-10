@@ -28,20 +28,25 @@
    "name": "GCU 青春校園創意大賽",
    "cats": [
     "photo",
-    "motion",
-    "brand"
+    "motion"
    ],
    "fee": "free",
    "feeNote": "免費報名",
    "teamText": "個人",
-   "note": "大專組（含碩博士），主題「我的校園生活點點滴滴」，多種創作形式都收。",
+   "note": "聖玄教育基金會主辦，主題「我的校園生活點點滴滴」，11/15 截止。投大專組，攝影（JPG 1080×1920）、短影音（1～3 分鐘 MP4）、繪畫三選一，都要附 300～1000 字作品理念。大專組 GCU 獎 1 萬、最佳青春獎 5 千（2 名）、佳作 2 千（20 名），11/30 公布、12/19 頒獎。",
    "src": "獎金獵人",
    "links": [
     [
-     "獎金獵人頁面（簡章）",
+     "報名表單（Google 表單）",
+     "https://docs.google.com/forms/d/e/1FAIpQLScssJX3cJQN2puPcdWu-J053aVvIHBfFMUl5Bbqp3utTkoLiQ/viewform"
+    ],
+    [
+     "獎金獵人頁面",
      "https://bhuntr.com/tw/competitions/ut2mbl8s2gr0qntzs6"
     ]
-   ]
+   ],
+   "going": true,
+   "warn": "評分最重「情感表達與故事性」（25%）和評審綜合（30%），理念說明要寫出故事。"
   },
   {
    "id": "bh-t228yd54fbgmmyn0u3",
@@ -51,16 +56,26 @@
     "photo"
    ],
    "fee": "free",
-   "feeNote": "費用請看簡章",
+   "feeNote": "免費（表單沒有收費項目）",
    "teamText": "個人",
-   "note": "高雄科大主辦，高中職以上學生，23:59 截止。",
+   "note": "高雄科大基礎教育中心主辦，11/15 23:59:59 截止。拍台灣本島、離島、外島的海洋景觀、海洋文化（祭典、船隻、水上活動等）。每人最多 5 張單張（不收組照），JPG 小於 6MB、建議 500 萬畫素以上，要寫拍攝日期和地點。冠軍 3,000 元，11/30 前公布。",
    "src": "獎金獵人",
    "links": [
     [
-     "獎金獵人頁面（簡章）",
+     "報名表單（Google 表單）",
+     "https://docs.google.com/forms/d/e/1FAIpQLScvleJ3m8US_CPGGMpQRomK5J80FKnyIAPQZKTybB1281Y3Yw/viewform"
+    ],
+    [
+     "得獎公布頁（高科大基礎教育中心）",
+     "https://cgs.nkust.edu.tw/index.php?Lang=zh-tw"
+    ],
+    [
+     "獎金獵人頁面",
      "https://bhuntr.com/tw/competitions/t228yd54fbgmmyn0u3"
     ]
-   ]
+   ],
+   "going": true,
+   "warn": "作品須未公開發表，不能加色、合成。得獎要交原始檔，著作權歸主辦單位。"
   },
   {
    "id": "bh-xxioim431kwggwopl9",
@@ -1377,6 +1392,10 @@
   }
  ],
  "todos": [
+  {
+   "id": "go-1115",
+   "text": "11/15 前送出：海洋文化攝影比賽（最多 5 張）、GCU 校園創意大賽（作品＋300 字理念）"
+  },
   {
    "id": "team",
    "text": "組隊：三創（11/20）和 AI 競賽（12/1）要隊友＋指導老師"

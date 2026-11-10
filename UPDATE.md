@@ -17,6 +17,7 @@
 
 - 截止日已經過了 **30 天以上**的比賽，從 `competitions` 移到 `data/archive.json` 的 `competitions` 陣列（檔案不存在就建立，格式同主檔）。
 - 過期不到 30 天的留著，網站會自動顯示「已截止」。
+- `going: true`（使用者要報名的）比賽，過期後搬去 archive 時保留 `going`，方便之後查得獎結果。截止前 7 天內的 `going` 比賽，在最後回報時特別提醒使用者。
 - 例外：有 `warn` 寫「明年」或「下一屆」的（例如 Design For Taiwan）不要搬，改成下一屆的推估日期。
 
 ## 2. 核對「約」的日期（tentative: true）
