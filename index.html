@@ -155,6 +155,26 @@ select.s-prep{border-style:dashed}
 .small{font-size:13px;color:var(--muted)}
 .syncbar{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted);padding:14px 22px}
 @media (prefers-reduced-motion:no-preference){.filters button,select{transition:background-color .15s}}
+
+/* ---- Bottom dock: quick jump between sections ---- */
+html{scroll-padding-top:16px}
+body{padding-bottom:calc(110px + env(safe-area-inset-bottom,0px))}
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;justify-content:center;pointer-events:none;
+  padding:0 max(12px,env(safe-area-inset-right,0px)) calc(14px + env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px))}
+.dock nav{pointer-events:auto;display:flex;align-items:stretch;gap:2px;max-width:100%;overflow-x:auto;scrollbar-width:none;
+  background:rgba(255,255,255,.88);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  border:1px solid var(--ink);border-radius:999px;padding:5px;box-shadow:0 10px 30px rgba(17,17,17,.10)}
+.dock nav::-webkit-scrollbar{display:none}
+.dock a{flex:none;display:grid;justify-items:center;gap:0;min-width:64px;padding:6px 14px;border-radius:999px;text-decoration:none;color:var(--ink);line-height:1.15}
+.dock a .en{font-family:var(--display);font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.dock a .zh{font-size:14px;font-weight:500}
+.dock a:hover{background:var(--tile2)}
+.dock a[aria-current="true"]{background:var(--lime);color:var(--on-lime)}
+.dock a[aria-current="true"] .en{color:var(--on-lime)}
+.dock .top{min-width:44px;padding:6px 12px;align-content:center;font-size:18px}
+.dock .count{display:inline-block;min-width:18px;margin-left:4px;padding:0 5px;border-radius:999px;background:var(--ink);color:var(--tile);font-size:11px;font-weight:600;font-variant-numeric:tabular-nums}
+@media (max-width:640px){.dock a{min-width:56px;padding:6px 10px}.dock a .en{display:none}.dock a .zh{font-size:13px}}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}.dock a{transition:background-color .15s}}
 </style>
 </head>
 <body>
@@ -186,7 +206,7 @@ select.s-prep{border-style:dashed}
     <div class="tally" id="tally"></div>
   </section>
 
-  <section class="tile filterbar">
+  <section class="tile filterbar" id="sec-entries">
     <span class="caps" style="color:var(--muted)">Filter</span>
     <div class="frow"><span class="caps">來源</span><nav class="filters" id="src-filters" aria-label="依來源篩選"></nav></div>
     <div class="frow"><span class="caps">費用</span><nav class="filters" id="fee-filters" aria-label="依費用篩選"></nav></div>
@@ -196,7 +216,7 @@ select.s-prep{border-style:dashed}
 
   <main id="timeline" class="span3" style="display:grid;gap:1px;background:var(--line)"></main>
 
-  <section class="tile info">
+  <section id="sec-todo" class="tile info">
     <span class="vlabel caps">01 — To do</span>
     <div class="inner">
       <h2>This week<small>這週要做的事</small></h2>
@@ -204,7 +224,7 @@ select.s-prep{border-style:dashed}
     </div>
   </section>
 
-  <section class="tile info">
+  <section id="sec-schedule" class="tile info">
     <span class="vlabel caps">02 — Schedule</span>
     <div class="inner">
       <h2>Schedule<small>時程規劃</small></h2>
@@ -218,7 +238,7 @@ select.s-prep{border-style:dashed}
     </div>
   </section>
 
-  <section class="tile info">
+  <section id="sec-bonus" class="tile info">
     <span class="vlabel caps">03 — After winning</span>
     <div class="inner">
       <h2>Award bonus<small>得獎後：文化部國際競賽獲獎者獎勵</small></h2>
@@ -227,7 +247,7 @@ select.s-prep{border-style:dashed}
     </div>
   </section>
 
-  <section class="tile info span2">
+  <section id="sec-strategy" class="tile info span2">
     <span class="vlabel caps">04 — Strategy</span>
     <div class="inner">
       <h2>How to win<small>拿獎的策略</small></h2>
@@ -244,7 +264,7 @@ select.s-prep{border-style:dashed}
     </div>
   </section>
 
-  <section class="tile info">
+  <section id="sec-inspiration" class="tile info">
     <span class="vlabel caps">05 — Inspiration</span>
     <div class="inner">
       <h2>Moodboard<small>靈感參考</small></h2>
@@ -256,7 +276,7 @@ select.s-prep{border-style:dashed}
 </div>
 
 <script>
-let ENTRIES=[];
+let ENTRIES=[],loaded=false;
 const FEES={all:"全部",free:"免費",paid:"付費"};
 const CATS={all:"全部",photo:"攝影",think:"設計思考",brand:"品牌・平面",motion:"動態",ai:"AI",biz:"創新創業",team:"團隊賽"};
 const STATUS=[["todo","未開始"],["prep","準備中"],["sent","已投件"],["short","入圍"],["win","得獎"],["skip","放棄"]];
@@ -307,7 +327,7 @@ function renderTimeline(){
   const main=document.getElementById("timeline");main.textContent="";
   const list=ENTRIES.filter(e=>(filter==="all"||(filter==="team"?!!e.team:e.cats.includes(filter)))&&(fee==="all"||e.fee===fee)&&(src==="all"||(src==="going"?!!e.going:(src==="bh")===!!e.src))&&(stat==="all"||(state.status[e.id]||"todo")===stat));
   document.getElementById("count-label").textContent=list.length+" entries";
-  if(!list.length){main.append(el("div",{class:"tile empty",text:"這個組合目前沒有比賽，換個篩選看看。"}));return}
+  if(!list.length){main.append(el("div",{class:"tile empty",text:loaded?"這個組合目前沒有比賽，換個篩選看看。":"讀取比賽資料中…"}));return}
   const groups=new Map();
   for(const e of list){const k=e.date.slice(0,7);if(!groups.has(k))groups.set(k,[]);groups.get(k).push(e)}
   for(const[k,items]of groups){
@@ -372,7 +392,8 @@ function renderNext(){
   const up=ENTRIES.filter(e=>daysLeft(e.date)>=0&&!finished(state.status[e.id]));
   const d=document.getElementById("next-d"),n=document.getElementById("next-n"),ul=document.getElementById("upnext");
   ul.textContent="";
-  if(!up.length){d.textContent="✓";n.textContent="全部處理完了";return}
+  if(!loaded){d.textContent="—";n.textContent="讀取比賽資料中…";ul.hidden=true;return}
+  if(!up.length){d.textContent="完成";n.textContent="目前的比賽都處理完了";return}
   const e=up[0],k=daysLeft(e.date);
   d.textContent=k===0?"今天":"D-"+k;
   n.textContent=up.filter(x=>x.date===e.date).map(x=>x.name).join("、");
@@ -407,6 +428,7 @@ function useLocal(note){
 
 renderFilters();renderAll();renderTodos();
 fetch("data/competitions.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{
+  loaded=true;
   ENTRIES=d.competitions.slice().sort((a,b)=>a.date.localeCompare(b.date));
   TODOS=d.todos.map(t=>[t.id,t.text]);
   document.getElementById("data-updated").textContent=d.updated;
@@ -436,6 +458,59 @@ fetch("data/competitions.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{
     if(!snap.metadata.fromCache)setSync("已同步");
     renderAll();renderTodos();
   },()=>{clearTimeout(timer);useLocal("連線中斷，暫存在這個瀏覽器")});
+})();
+</script>
+
+<div class="dock">
+  <nav aria-label="快速切換區塊">
+    <a href="#top" class="top" aria-label="回到最上面">↑</a>
+    <a href="#sec-entries" data-sec="sec-entries"><span class="en">Entries</span><span class="zh">比賽<span class="count" id="dock-count">—</span></span></a>
+    <a href="#sec-todo" data-sec="sec-todo"><span class="en">To do</span><span class="zh">待辦<span class="count" id="dock-todo">—</span></span></a>
+    <a href="#sec-schedule" data-sec="sec-schedule"><span class="en">Schedule</span><span class="zh">時程</span></a>
+    <a href="#sec-bonus" data-sec="sec-bonus"><span class="en">Bonus</span><span class="zh">得獎後</span></a>
+    <a href="#sec-strategy" data-sec="sec-strategy"><span class="en">Strategy</span><span class="zh">策略</span></a>
+    <a href="#sec-inspiration" data-sec="sec-inspiration"><span class="en">Moodboard</span><span class="zh">靈感</span></a>
+  </nav>
+</div>
+<script>
+(()=>{
+  document.body.id="top";
+  const links=[...document.querySelectorAll(".dock a[data-sec]")];
+  const dockNav=document.querySelector(".dock nav");
+  let shown=undefined;
+  const setActive=id=>{
+    if(id===shown)return;shown=id;
+    links.forEach(a=>a.setAttribute("aria-current",String(a.dataset.sec===id)));
+    const a=links.find(x=>x.dataset.sec===id);
+    if(a){const l=a.offsetLeft,r=l+a.offsetWidth;   // keep the active item visible on narrow screens
+      if(l<dockNav.scrollLeft)dockNav.scrollLeft=l-8;else if(r>dockNav.scrollLeft+dockNav.clientWidth)dockNav.scrollLeft=r-dockNav.clientWidth+8}
+  };
+  // The entries link stays active while the timeline is on screen
+  const zones=links.map(a=>a.dataset.sec==="sec-entries"?[document.getElementById("sec-entries"),document.getElementById("timeline")]:[document.getElementById(a.dataset.sec)]);
+  let clicked=null;
+  links.forEach(a=>a.addEventListener("click",()=>{clicked=a.dataset.sec;setActive(clicked)}));
+  const pick=()=>{
+    const mid=innerHeight*0.4,hits=[];
+    zones.forEach((els,i)=>{for(const el of els){if(!el)continue;const r=el.getBoundingClientRect();if(r.top<=mid&&r.bottom>=mid)hits.push({id:links[i].dataset.sec,top:Math.round(r.top)})}});
+    if(clicked){const el=document.getElementById(clicked),r=el&&el.getBoundingClientRect();
+      if(r&&r.top<innerHeight*0.5&&r.bottom>innerHeight*0.15){setActive(clicked);return}
+      if(r&&(r.bottom<0||r.top>innerHeight))clicked=null}
+    if(scrollY<120||!hits.length){setActive(null);return}
+    const maxTop=Math.max(...hits.map(x=>x.top)),row=hits.filter(x=>x.top===maxTop).map(x=>x.id);
+    setActive(row.includes(clicked)?clicked:row[0]);
+  };
+  addEventListener("scroll",pick,{passive:true});addEventListener("resize",pick);pick();
+  // Live counts: competitions still open, unchecked to-dos
+  const put=(id,v)=>{const el=document.getElementById(id),s=String(v);if(el.textContent!==s)el.textContent=s};
+  const upd=()=>{
+    put("dock-count",document.querySelectorAll(".entry:not(.past)").length);
+    put("dock-todo",[...document.querySelectorAll("#todos input")].filter(i=>!i.checked).length);
+  };
+  // Watch only the list and the to-dos, never the dock itself
+  const mo=new MutationObserver(upd);
+  mo.observe(document.getElementById("timeline"),{childList:true});
+  mo.observe(document.getElementById("todos"),{childList:true});
+  document.addEventListener("change",upd);upd();
 })();
 </script>
 </body>
