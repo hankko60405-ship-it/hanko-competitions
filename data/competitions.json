@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-10",
+ "updated": "2026-11-12",
  "note": "Hanko 參賽路線的資料來源。網站 index.html 會讀這個檔案。格式說明見 CLAUDE.md。",
  "competitions": [
   {
@@ -142,21 +142,35 @@
   {
    "id": "bh-twjzy7mfj8ububnb5z",
    "date": "2026-11-16",
-   "name": "桃園珍珠海岸「海岸映像」攝影比賽",
+   "name": "桃園珍珠海岸「閃耀珍珠・海岸映像」攝影比賽",
    "cats": [
     "photo"
    ],
    "fee": "free",
    "feeNote": "免費參賽",
    "teamText": "個人",
-   "note": "11/16 10:00 截止，每人最多 5 張，須未公開發表。",
+   "note": "11/16（一）上午 10:00 截止，11/23 前公布。拍攝地點限大園、蘆竹、觀音、新屋沿海，主題是紀實自然海岸生態，要展現沿海獨有特色與生物多樣性。每人最多 5 張，像素 1,000 萬以上、10MB 以下，JPG／PNG。每張要填作品名稱、拍攝地點、創作理念（300 字內）。冠軍 8,000 元＋遊程體驗、亞軍 5,000 元、季軍 3,000 元。",
    "src": "獎金獵人",
    "links": [
     [
-     "獎金獵人頁面（簡章）",
+     "報名表單（Google 表單）",
+     "https://docs.google.com/forms/d/e/1FAIpQLSfNzcYE-rhNc9zGxG5bnIzb4U6viiX3Ys_0WRMBJPNeLSsc0A/viewform"
+    ],
+    [
+     "授權同意書下載（Google 雲端）",
+     "https://drive.google.com/drive/folders/1YoIgl5d48upWQjNTMtlC-RJ9Mm8RyH4a?usp=sharing"
+    ],
+    [
+     "活動官網",
+     "https://taoyuanpearlcoast.tw/contest-detail.html"
+    ],
+    [
+     "獎金獵人頁面",
      "https://bhuntr.com/tw/competitions/twjzy7mfj8ububnb5z"
     ]
-   ]
+   ],
+   "going": true,
+   "warn": "禁止空拍機、AI、合成、翻拍、格放、疊片，只能少量調色和裁切。要先下載「著作財產權暨肖像權授權同意書」，親筆簽名後拍照或掃描上傳。"
   },
   {
    "id": "bh-1u7m6v6vwdvtsemefb",
@@ -1392,6 +1406,10 @@
   }
  ],
  "todos": [
+  {
+   "id": "go-1116",
+   "text": "11/16 上午 10:00 前送出珍珠海岸攝影比賽：5 張（10MB 以下）＋簽名的授權同意書"
+  },
   {
    "id": "go-1115",
    "text": "11/15 前送出：海洋文化攝影比賽（最多 5 張）、GCU 校園創意大賽（作品＋300 字理念）"
