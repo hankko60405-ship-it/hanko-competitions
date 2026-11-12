@@ -102,9 +102,9 @@ a{color:inherit;text-decoration:underline;text-underline-offset:3px;text-decorat
 .tags{display:flex;flex-wrap:wrap;gap:6px}
 .side{display:grid;gap:10px;justify-items:end;align-content:start}
 .left{font-size:13px;font-weight:500}
-.side .heart{align-self:end;margin-top:auto;width:40px;height:40px;border-radius:999px;border:1px solid var(--line);background:var(--tile);color:var(--muted);font-size:20px;line-height:1;cursor:pointer;display:grid;place-items:center;padding:0}
+.side .heart{align-self:end;margin-top:auto;width:44px;height:44px;border-radius:999px;border:1px solid var(--line);background:var(--tile);color:var(--line);font-family:var(--display);font-size:30px;line-height:1;cursor:pointer;display:grid;place-items:center;padding:0}
 .side .heart:hover{border-color:var(--ink);color:var(--ink)}
-.side .heart[aria-pressed="true"]{background:var(--lime);border-color:var(--lime);color:var(--on-lime)}
+.side .heart[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--lime)}
 .side{grid-template-rows:auto auto 1fr}
 .left.hot{background:var(--lime);color:var(--on-lime);border-color:var(--lime)}
 .left.soon{color:var(--ink)}
@@ -299,7 +299,7 @@ let TODOS=[];
 let state={status:{},todos:{},fav:{}};
 const openDocs=new Set();
 let filter="all",fee="all",src="all",stat="all";
-const SRCS={all:"全部",fav:"♥ 我喜歡",going:"我要報名",mine:"我的精選",bh:"獎金獵人新增"};
+const SRCS={all:"全部",fav:"✳ 我喜歡",going:"我要報名",mine:"我的精選",bh:"獎金獵人新增"};
 let save=()=>{};
 
 function taipeiToday(){
@@ -391,7 +391,7 @@ function makeCard(e){
   for(const[v,t]of STATUS){const o=el("option",{value:v,text:t});if(v===s)o.selected=true;sel.append(o)}
   sel.onchange=()=>{state.status[e.id]=sel.value;save();renderAll()};
   const liked=!!state.fav[e.id];
-  const heart=el("button",{type:"button",class:"heart","aria-pressed":String(liked),"aria-label":(liked?"取消喜歡 ":"喜歡 ")+e.name,title:liked?"取消喜歡":"喜歡",text:liked?"♥":"♡"});
+  const heart=el("button",{type:"button",class:"heart","aria-pressed":String(liked),"aria-label":(liked?"取消喜歡 ":"喜歡 ")+e.name,title:liked?"取消喜歡":"喜歡",text:"✳"});
   heart.onclick=()=>{if(state.fav[e.id])delete state.fav[e.id];else state.fav[e.id]=true;save();renderTimeline();renderSent()};
   card.append(el("div",{class:"side"},el("span",{class:"pill left num "+lc,text:lt}),sel,heart));
   return card;
