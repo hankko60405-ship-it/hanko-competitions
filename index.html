@@ -123,6 +123,7 @@ select.s-prep{border-style:dashed}
   select{max-width:none}
 }
 .empty{padding:22px;color:var(--muted)}
+.date .day.ev{font-size:28px;line-height:1.1}
 .warn{font-size:13px;background:var(--tile2);border-left:3px solid var(--lime);padding:6px 10px}
 .docs{border-top:1px solid var(--line);padding-top:10px}
 .docs summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;border:1px solid var(--ink);border-radius:999px;padding:4px 14px}
@@ -229,6 +230,8 @@ body{padding-bottom:calc(110px + env(safe-area-inset-bottom,0px))}
 
   <div id="sec-sent" class="span3" style="display:grid;gap:1px;background:var(--line)"><div id="sent-list" style="display:grid;gap:1px"></div></div>
 
+  <div id="sec-events" class="span3" style="display:grid;gap:1px;background:var(--line)"><div id="events-list" style="display:grid;gap:1px"></div></div>
+
   <section id="sec-todo" class="tile info">
     <span class="vlabel caps">01 — To do</span>
     <div class="inner">
@@ -289,7 +292,7 @@ body{padding-bottom:calc(110px + env(safe-area-inset-bottom,0px))}
 </div>
 
 <script>
-let ENTRIES=[],loaded=false;
+let ENTRIES=[],EVENTS=[],loaded=false;
 const FEES={all:"全部",free:"免費",paid:"付費"};
 const CATS={all:"全部",photo:"攝影",think:"設計思考",brand:"品牌・平面",motion:"動態",ai:"AI",biz:"創新創業",team:"團隊賽"};
 const STATUS=[["todo","未開始"],["prep","準備中"],["sent","已投件"],["short","入圍"],["win","得獎"],["skip","放棄"]];
@@ -452,7 +455,25 @@ function renderSent(){
   for(const e of list)sec.append(makeCard(e));
   box.append(sec);
 }
-function renderAll(){renderNext();renderTally();renderTimeline();renderSent()}
+function renderEvents(){
+  const box=document.getElementById("events-list");box.textContent="";
+  const sec=el("section",{class:"tile month","aria-label":"活動・課程"});
+  sec.append(el("div",{class:"mhead"},el("h2",{},"Events",el("span",{class:"ast","aria-hidden":"true",text:"✳"})),el("div",{class:"meta caps"},el("div",{text:"活動・課程"}),el("div",{text:"不是比賽，但對拿獎有幫助"}))));
+  if(!EVENTS.length)sec.append(el("div",{class:"empty",text:loaded?"目前沒有活動或課程。":"讀取中…"}));
+  for(const v of EVENTS){
+    const card=el("article",{class:"entry"});
+    card.append(el("div",{class:"date num"},el("span",{class:"day ev",text:v.when})));
+    const title=el("h3",{},el("span",{class:"t",text:v.name}));
+    const tags=el("div",{class:"tags"},el("span",{class:"pill"+(v.fee==="free"?" fill":""),text:v.fee==="free"?"FREE":"PAID"}),el("span",{class:"pill",style:"color:var(--muted)",text:v.kind}));
+    const body=el("div",{class:"ebody"},title,tags,el("dl",{class:"credits"},el("dt",{text:"時間"}),el("dd",{text:v.when}),el("dt",{text:"說明"}),el("dd",{text:v.note})));
+    if(v.warn)body.append(el("p",{class:"warn"},el("b",{text:"注意 "}),v.warn));
+    if((v.links||[]).length){const ul=el("ul",{class:"doclist"});for(const[l,u]of v.links)ul.append(el("li",{},el("a",{href:u,target:"_blank",rel:"noopener"},el("span",{class:"ext",text:"↗"}),l)));body.append(ul)}
+    card.append(body,el("div",{class:"side"}));
+    sec.append(card);
+  }
+  box.append(sec);
+}
+function renderAll(){renderNext();renderTally();renderTimeline();renderSent();renderEvents()}
 function setSync(t){document.getElementById("sync").textContent="進度儲存："+t}
 
 function useLocal(note){
@@ -466,6 +487,7 @@ fetch("data/competitions.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{
   loaded=true;
   ENTRIES=d.competitions.slice().sort((a,b)=>a.date.localeCompare(b.date));
   TODOS=d.todos.map(t=>[t.id,t.text]);
+  EVENTS=d.events||[];
   document.getElementById("data-updated").textContent=d.updated;
   document.getElementById("data-count").textContent=ENTRIES.length;
   renderAll();renderTodos();
@@ -501,6 +523,7 @@ fetch("data/competitions.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{
     <a href="#top" class="top" aria-label="回到最上面">↑</a>
     <a href="#sec-entries" data-sec="sec-entries"><span class="en">Entries</span><span class="zh">比賽<span class="count" id="dock-count">—</span></span></a>
     <a href="#sec-sent" data-sec="sec-sent"><span class="en">Sent</span><span class="zh">已投件<span class="count" id="dock-sent">—</span></span></a>
+    <a href="#sec-events" data-sec="sec-events"><span class="en">Events</span><span class="zh">活動</span></a>
     <a href="#sec-todo" data-sec="sec-todo"><span class="en">To do</span><span class="zh">待辦<span class="count" id="dock-todo">—</span></span></a>
     <a href="#sec-schedule" data-sec="sec-schedule"><span class="en">Schedule</span><span class="zh">時程</span></a>
     <a href="#sec-bonus" data-sec="sec-bonus"><span class="en">Bonus</span><span class="zh">得獎後</span></a>

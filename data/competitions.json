@@ -1563,5 +1563,36 @@
    "id": "dft",
    "text": "2027 年 3 月去看 Design For Taiwan 第 12 屆報名，先找好 3～6 人隊友"
   }
+ ],
+ "events": [
+  {
+   "id": "ev-yc-sus",
+   "name": "YC Startup School 線上創業課",
+   "kind": "線上課程",
+   "when": "隨時",
+   "fee": "free",
+   "note": "Y Combinator 的免費線上課，自己安排進度，大約 7 週、每週 1～2 小時。學怎麼找問題、做出產品、找到使用者，對三創、Hult Prize 這類提案比賽有幫助。",
+   "links": [
+    [
+     "Startup School 官網",
+     "https://startupschool.org/"
+    ]
+   ]
+  },
+  {
+   "id": "ev-ustart",
+   "name": "教育部 U-start 創新創業計畫（2027 年度）",
+   "kind": "創業補助計畫",
+   "when": "待公告",
+   "fee": "free",
+   "note": "教育部青年發展署的團隊創業計畫，有「文化創意業」和「社會企業」類。第一階段團隊補助約 35 萬，第二階段績優團隊 35～100 萬（以 2026 年度為例）。",
+   "warn": "團隊至少 3 人，三分之二以上要是在校生或近五年畢業生；代表人計畫期間要全職投入。要透過學校育成中心申請，2027 年度的公告還沒出來。",
+   "links": [
+    [
+     "U-start 計畫介紹",
+     "https://www.pro360.com.tw/guide/ustart_project"
+    ]
+   ]
+  }
  ]
 }
