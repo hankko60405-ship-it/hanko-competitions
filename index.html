@@ -87,6 +87,8 @@ a{color:inherit;text-decoration:underline;text-underline-offset:3px;text-decorat
 .entry:last-child{border-bottom:0}
 .entry.past{opacity:.45}
 .entry.done{background:var(--tile2)}
+.entry.skipped{opacity:.4;filter:grayscale(1)}
+.entry.skipped:hover,.entry.skipped:focus-within{opacity:.85}
 .date{display:grid;align-content:start;gap:4px}
 .date .day{font-family:var(--display);font-weight:300;font-size:60px;line-height:.85;letter-spacing:-.03em}
 .date .caps{color:var(--muted)}
@@ -334,7 +336,7 @@ function renderFilters(){
 function makeCard(e){
   const n=daysLeft(e.date);const[lt,lc]=leftLabel(n);
   const s=st(e);
-  const card=el("article",{class:"entry"+(n<0?" past":"")});
+  const card=el("article",{class:"entry"+(n<0?" past":"")+(s==="skip"?" skipped":"")});
   const[,mm,dd]=e.date.split("-");
   card.append(el("div",{class:"date num"},
     el("span",{class:"day",text:String(Number(dd)).padStart(2,"0")}),
@@ -529,7 +531,7 @@ fetch("data/competitions.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{
   // Live counts: competitions still open, unchecked to-dos
   const put=(id,v)=>{const el=document.getElementById(id),s=String(v);if(el.textContent!==s)el.textContent=s};
   const upd=()=>{
-    put("dock-count",document.querySelectorAll("#timeline .entry:not(.past)").length);
+    put("dock-count",document.querySelectorAll("#timeline .entry:not(.past):not(.skipped)").length);
     put("dock-sent",document.querySelectorAll("#sent-list .entry").length);
     put("dock-todo",[...document.querySelectorAll("#todos input")].filter(i=>!i.checked).length);
   };
