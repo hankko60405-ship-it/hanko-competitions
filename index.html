@@ -366,7 +366,7 @@ function renderTimeline(){
       const det=el("details",{class:"docs",id:"docs-"+e.id});
       if(openDocs.has(e.id))det.open=true;
       det.ontoggle=()=>{det.open?openDocs.add(e.id):openDocs.delete(e.id)};
-      det.append(el("summary",{},el("span",{text:(nd?"詳細簡章・":"")+(nf?"報名檔案 "+nf+" 份・官網連結":"官網連結（沒有下載檔，報名都在網站上）")})));
+      det.append(el("summary",{},el("span",{text:[nd&&"詳細簡章",nf&&"檔案 "+nf+" 份",nl&&"報名・官網連結 "+nl+" 個"].filter(Boolean).join("・")||"還沒有資料"})));
       const box=el("div",{class:"docbox"});
       if(nd){
         const info=el("div",{class:"brief"});
