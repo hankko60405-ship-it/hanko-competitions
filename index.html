@@ -220,6 +220,8 @@ body{padding-bottom:calc(110px + env(safe-area-inset-bottom,0px))}
 
   <main id="timeline" class="span3" style="display:grid;gap:1px;background:var(--line)"></main>
 
+  <div id="sec-sent" class="span3" style="display:grid;gap:1px;background:var(--line)"><div id="sent-list" style="display:grid;gap:1px"></div></div>
+
   <section id="sec-todo" class="tile info">
     <span class="vlabel caps">01 — To do</span>
     <div class="inner">
@@ -304,6 +306,7 @@ function leftLabel(n){
   return["D-"+n,n<=14?"hot":n<=45?"soon":"far"];
 }
 const st=e=>state.status[e.id]||e.status||"todo";
+const SENT=["sent","short","win"],isSent=s=>SENT.includes(s);
 const finished=s=>["sent","short","win","skip"].includes(s);
 
 function el(tag,attrs={},...kids){
@@ -324,13 +327,69 @@ function renderFilters(){
   };
   fill("fee-filters",FEES,fee,k=>fee=k);
   fill("src-filters",SRCS,src,k=>src=k);
-  fill("status-filters",Object.fromEntries([["all","全部"],...STATUS]),stat,k=>stat=k);
+  fill("status-filters",Object.fromEntries([["all","全部"],...STATUS.filter(([v])=>!isSent(v))]),stat,k=>stat=k);
   fill("filters",CATS,filter,k=>filter=k);
+}
+
+function makeCard(e){
+  const n=daysLeft(e.date);const[lt,lc]=leftLabel(n);
+  const s=st(e);
+  const card=el("article",{class:"entry"+(n<0?" past":"")});
+  const[,mm,dd]=e.date.split("-");
+  card.append(el("div",{class:"date num"},
+    el("span",{class:"day",text:String(Number(dd)).padStart(2,"0")}),
+    el("span",{class:"caps",text:MONTHS[Number(mm)-1]+(e.tentative?" · 約":"")})));
+  const title=el("h3",{},el("span",{class:"t",text:e.name}));
+  if(e.top)title.append(el("span",{class:"pill fill",text:"第一優先"}));
+  if(e.going)title.append(el("span",{class:"pill going",text:"我要報名"}));
+  const tags=el("div",{class:"tags"});
+  tags.append(el("span",{class:"pill"+(e.fee==="free"?" fill":""),text:e.fee==="free"?"FREE":"PAID"}));
+  for(const c of e.cats)tags.append(el("span",{class:"pill",style:"color:var(--muted)",text:CATS[c]}));
+  if(e.src)tags.append(el("span",{class:"pill",style:"color:var(--muted);border-style:dashed",text:"來自"+e.src}));
+  const dl=el("dl",{class:"credits"},
+    el("dt",{text:"費用"}),el("dd",{text:e.feeNote||FEES[e.fee]}),
+    el("dt",{text:"參賽"}),el("dd",{text:e.team||e.teamText||"個人"}),
+    el("dt",{text:"備註"}),el("dd",{text:e.note}));
+  if(e.result)dl.append(el("dt",{text:"公布"}),el("dd",{},el("b",{text:e.result})));
+  const body=el("div",{class:"ebody"},title,tags,dl);
+  if(e.warn)body.append(el("p",{class:"warn"},el("b",{text:"注意 "}),e.warn));
+  const nf=(e.files||[]).length,nl=(e.links||[]).length,nd=(e.details||[]).length;
+  const det=el("details",{class:"docs",id:"docs-"+e.id});
+  if(openDocs.has(e.id))det.open=true;
+  det.ontoggle=()=>{det.open?openDocs.add(e.id):openDocs.delete(e.id)};
+  det.append(el("summary",{},el("span",{text:[nd&&"詳細簡章",nf&&"檔案 "+nf+" 份",nl&&"報名・官網連結 "+nl+" 個"].filter(Boolean).join("・")||"還沒有資料"})));
+  const box=el("div",{class:"docbox"});
+  if(nd){
+    const info=el("div",{class:"brief"});
+    for(const[h,items]of e.details){const ul=el("ul");for(const t of items)ul.append(el("li",{text:t}));info.append(el("section",{},el("h4",{text:h}),ul))}
+    box.append(el("div",{class:"caps sub",text:"Details"}),info);
+  }
+  if(nf){
+    const ul=el("ul",{class:"doclist"});
+    for(const[label,path]of e.files){
+      const remote=/^https?:/.test(path);
+      const ext=path.split("?")[0].split(".").pop().toUpperCase();
+      ul.append(el("li",{},el("a",{href:remote?path:"files/"+path,target:"_blank",rel:"noopener"},el("span",{class:"ext",text:ext}),label),el("span",{class:"hint",text:ext==="PDF"?"新分頁開啟":"從官網下載，用 Word 開"})));
+    }
+    box.append(el("div",{class:"caps sub",text:"Files"}),ul);
+  }
+  if(nl){
+    const ul=el("ul",{class:"doclist"});
+    for(const[label,url]of e.links)ul.append(el("li",{},el("a",{href:url,target:"_blank",rel:"noopener"},el("span",{class:"ext",text:"↗"}),label)));
+    box.append(el("div",{class:"caps sub",text:"Links"}),ul);
+  }
+  det.append(box);body.append(det);
+  card.append(body);
+  const sel=el("select",{id:"st-"+e.id,"aria-label":e.name+" 狀態",class:"s-"+s});
+  for(const[v,t]of STATUS){const o=el("option",{value:v,text:t});if(v===s)o.selected=true;sel.append(o)}
+  sel.onchange=()=>{state.status[e.id]=sel.value;save();renderAll()};
+  card.append(el("div",{class:"side"},el("span",{class:"pill left num "+lc,text:lt}),sel));
+  return card;
 }
 
 function renderTimeline(){
   const main=document.getElementById("timeline");main.textContent="";
-  const list=ENTRIES.filter(e=>(filter==="all"||(filter==="team"?!!e.team:e.cats.includes(filter)))&&(fee==="all"||e.fee===fee)&&(src==="all"||(src==="going"?!!e.going:(src==="bh")===!!e.src))&&(stat==="all"||(st(e))===stat));
+  const list=ENTRIES.filter(e=>!isSent(st(e))&&(filter==="all"||(filter==="team"?!!e.team:e.cats.includes(filter)))&&(fee==="all"||e.fee===fee)&&(src==="all"||(src==="going"?!!e.going:(src==="bh")===!!e.src))&&(stat==="all"||(st(e))===stat));
   document.getElementById("count-label").textContent=list.length+" entries";
   if(!list.length){main.append(el("div",{class:"tile empty",text:loaded?"這個組合目前沒有比賽，換個篩選看看。":"讀取比賽資料中…"}));return}
   const groups=new Map();
@@ -340,61 +399,7 @@ function renderTimeline(){
     const sec=el("section",{class:"tile month","aria-label":y+" 年 "+Number(m)+" 月"});
     const h=el("h2",{},MONTHS[Number(m)-1],el("span",{class:"ast","aria-hidden":"true",text:"✳"}));
     sec.append(el("div",{class:"mhead"},h,el("div",{class:"meta caps"},el("div",{text:y}),el("div",{text:Number(m)+" 月 · "+items.length+" 場"}))));
-    for(const e of items){
-      const n=daysLeft(e.date);const[lt,lc]=leftLabel(n);
-      const s=st(e);
-      const card=el("article",{class:"entry"+(n<0?" past":"")+(finished(s)&&s!=="skip"?" done":"")});
-      const[,mm,dd]=e.date.split("-");
-      card.append(el("div",{class:"date num"},
-        el("span",{class:"day",text:String(Number(dd)).padStart(2,"0")}),
-        el("span",{class:"caps",text:MONTHS[Number(mm)-1]+(e.tentative?" · 約":"")})));
-      const title=el("h3",{},el("span",{class:"t",text:e.name}));
-      if(e.top)title.append(el("span",{class:"pill fill",text:"第一優先"}));
-      if(e.going)title.append(el("span",{class:"pill going",text:"我要報名"}));
-      const tags=el("div",{class:"tags"});
-      tags.append(el("span",{class:"pill"+(e.fee==="free"?" fill":""),text:e.fee==="free"?"FREE":"PAID"}));
-      for(const c of e.cats)tags.append(el("span",{class:"pill",style:"color:var(--muted)",text:CATS[c]}));
-      if(e.src)tags.append(el("span",{class:"pill",style:"color:var(--muted);border-style:dashed",text:"來自"+e.src}));
-      const dl=el("dl",{class:"credits"},
-        el("dt",{text:"費用"}),el("dd",{text:e.feeNote||FEES[e.fee]}),
-        el("dt",{text:"參賽"}),el("dd",{text:e.team||e.teamText||"個人"}),
-        el("dt",{text:"備註"}),el("dd",{text:e.note}));
-      if(e.result)dl.append(el("dt",{text:"公布"}),el("dd",{},el("b",{text:e.result})));
-      const body=el("div",{class:"ebody"},title,tags,dl);
-      if(e.warn)body.append(el("p",{class:"warn"},el("b",{text:"注意 "}),e.warn));
-      const nf=(e.files||[]).length,nl=(e.links||[]).length,nd=(e.details||[]).length;
-      const det=el("details",{class:"docs",id:"docs-"+e.id});
-      if(openDocs.has(e.id))det.open=true;
-      det.ontoggle=()=>{det.open?openDocs.add(e.id):openDocs.delete(e.id)};
-      det.append(el("summary",{},el("span",{text:[nd&&"詳細簡章",nf&&"檔案 "+nf+" 份",nl&&"報名・官網連結 "+nl+" 個"].filter(Boolean).join("・")||"還沒有資料"})));
-      const box=el("div",{class:"docbox"});
-      if(nd){
-        const info=el("div",{class:"brief"});
-        for(const[h,items]of e.details){const ul=el("ul");for(const t of items)ul.append(el("li",{text:t}));info.append(el("section",{},el("h4",{text:h}),ul))}
-        box.append(el("div",{class:"caps sub",text:"Details"}),info);
-      }
-      if(nf){
-        const ul=el("ul",{class:"doclist"});
-        for(const[label,path]of e.files){
-          const remote=/^https?:/.test(path);
-          const ext=path.split("?")[0].split(".").pop().toUpperCase();
-          ul.append(el("li",{},el("a",{href:remote?path:"files/"+path,target:"_blank",rel:"noopener"},el("span",{class:"ext",text:ext}),label),el("span",{class:"hint",text:ext==="PDF"?"新分頁開啟":"從官網下載，用 Word 開"})));
-        }
-        box.append(el("div",{class:"caps sub",text:"Files"}),ul);
-      }
-      if(nl){
-        const ul=el("ul",{class:"doclist"});
-        for(const[label,url]of e.links)ul.append(el("li",{},el("a",{href:url,target:"_blank",rel:"noopener"},el("span",{class:"ext",text:"↗"}),label)));
-        box.append(el("div",{class:"caps sub",text:"Links"}),ul);
-      }
-      det.append(box);body.append(det);
-      card.append(body);
-      const sel=el("select",{id:"st-"+e.id,"aria-label":e.name+" 狀態",class:"s-"+s});
-      for(const[v,t]of STATUS){const o=el("option",{value:v,text:t});if(v===s)o.selected=true;sel.append(o)}
-      sel.onchange=()=>{state.status[e.id]=sel.value;save();renderAll()};
-      card.append(el("div",{class:"side"},el("span",{class:"pill left num "+lc,text:lt}),sel));
-      sec.append(card);
-    }
+    for(const e of items)sec.append(makeCard(e));
     main.append(sec);
   }
 }
@@ -428,7 +433,16 @@ function renderTodos(){
     ul.append(el("li",{},el("label",{for:"todo-"+k},cb,el("span",{text:t}))));
   }
 }
-function renderAll(){renderNext();renderTally();renderTimeline()}
+function renderSent(){
+  const box=document.getElementById("sent-list");box.textContent="";
+  const list=ENTRIES.filter(e=>isSent(st(e)));
+  const sec=el("section",{class:"tile month","aria-label":"已投件"});
+  sec.append(el("div",{class:"mhead"},el("h2",{},"Sent",el("span",{class:"ast","aria-hidden":"true",text:"✳"})),el("div",{class:"meta caps"},el("div",{text:"已投件"}),el("div",{text:list.length+" 場"}))));
+  if(!list.length)sec.append(el("div",{class:"empty",text:loaded?"還沒有投件的比賽。在比賽卡片右邊把進度改成「已投件」，就會移到這裡。":"讀取比賽資料中…"}));
+  for(const e of list)sec.append(makeCard(e));
+  box.append(sec);
+}
+function renderAll(){renderNext();renderTally();renderTimeline();renderSent()}
 function setSync(t){document.getElementById("sync").textContent="進度儲存："+t}
 
 function useLocal(note){
@@ -476,6 +490,7 @@ fetch("data/competitions.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{
   <nav aria-label="快速切換區塊">
     <a href="#top" class="top" aria-label="回到最上面">↑</a>
     <a href="#sec-entries" data-sec="sec-entries"><span class="en">Entries</span><span class="zh">比賽<span class="count" id="dock-count">—</span></span></a>
+    <a href="#sec-sent" data-sec="sec-sent"><span class="en">Sent</span><span class="zh">已投件<span class="count" id="dock-sent">—</span></span></a>
     <a href="#sec-todo" data-sec="sec-todo"><span class="en">To do</span><span class="zh">待辦<span class="count" id="dock-todo">—</span></span></a>
     <a href="#sec-schedule" data-sec="sec-schedule"><span class="en">Schedule</span><span class="zh">時程</span></a>
     <a href="#sec-bonus" data-sec="sec-bonus"><span class="en">Bonus</span><span class="zh">得獎後</span></a>
@@ -514,13 +529,15 @@ fetch("data/competitions.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{
   // Live counts: competitions still open, unchecked to-dos
   const put=(id,v)=>{const el=document.getElementById(id),s=String(v);if(el.textContent!==s)el.textContent=s};
   const upd=()=>{
-    put("dock-count",document.querySelectorAll(".entry:not(.past)").length);
+    put("dock-count",document.querySelectorAll("#timeline .entry:not(.past)").length);
+    put("dock-sent",document.querySelectorAll("#sent-list .entry").length);
     put("dock-todo",[...document.querySelectorAll("#todos input")].filter(i=>!i.checked).length);
   };
   // Watch only the list and the to-dos, never the dock itself
   const mo=new MutationObserver(upd);
   mo.observe(document.getElementById("timeline"),{childList:true});
   mo.observe(document.getElementById("todos"),{childList:true});
+  mo.observe(document.getElementById("sent-list"),{childList:true,subtree:true});
   document.addEventListener("change",upd);upd();
 })();
 </script>
