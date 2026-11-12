@@ -73,8 +73,9 @@ CHANGELOG.md            每次更新做了什麼，最新的寫在最上面
 - 設計風格：白底、細灰格線、超大英文大寫標題、螢光黃綠 `#E4FF32` 色塊、圓角膠囊按鈕、直排小標。字體 Archivo + Noto Sans TC。使用者明確要求白底，不要改回深色。
 - 版面已經撐滿螢幕寬度（只留 16px 邊距），不要再加最大寬度。
 - 進度是「已投件／入圍／得獎」的比賽不出現在主列表，改放在比賽列表下方的「SENT 已投件」區塊（`#sec-sent`）。
-- 已投件下面是「EVENTS 活動・課程」區塊（`#sec-events`），資料在 `competitions.json` 的 `events` 陣列：`{id,name,kind,when,fee,note,warn?,links}`。放不是比賽、但對拿獎有幫助的課程、計畫、活動。
-- 底部有固定導覽列（`.dock`），連到 `#sec-entries`、`#sec-sent`、`#sec-events`、`#sec-todo`、`#sec-schedule`、`#sec-bonus`、`#sec-strategy`、`#sec-inspiration`。新增區塊時記得給 id 並加進導覽列。
+- 已投件下面是「EVENTS 活動・課程」區塊（`#sec-events`），資料在 `competitions.json` 的 `events` 陣列：`{id,name,kind,when,fee,note,warn?,links}`。放不是比賽、但對拿獎有幫助的課程、計畫、活動。可選欄位 `date`（有截止日會顯示倒數）、`result`、`details`、`files`、`going`。
+- 活動下面是「DREAM 圓夢基金」獨立專區（`#sec-pathfinder`），資料在 `pathfinder` 陣列，格式同 events，詳細資料直接展開。放使用者說想報名的青年百億海外圓夢基金（twpathfinder.yda.gov.tw）。
+- 底部有固定導覽列（`.dock`），連到 `#sec-entries`、`#sec-sent`、`#sec-events`、`#sec-pathfinder`、`#sec-todo`、`#sec-schedule`、`#sec-bonus`、`#sec-strategy`、`#sec-inspiration`。新增區塊時記得給 id 並加進導覽列。
 - 使用者不喜歡 ✓ 打勾符號，不要用它表示完成。開頭不要放「(SCROLL)」字樣。動態背景試過水銀、半色調，使用者覺得奇怪，不要加。
 
 ## 部署

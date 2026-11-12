@@ -231,6 +231,7 @@ body{padding-bottom:calc(110px + env(safe-area-inset-bottom,0px))}
   <div id="sec-sent" class="span3" style="display:grid;gap:1px;background:var(--line)"><div id="sent-list" style="display:grid;gap:1px"></div></div>
 
   <div id="sec-events" class="span3" style="display:grid;gap:1px;background:var(--line)"><div id="events-list" style="display:grid;gap:1px"></div></div>
+  <div id="sec-pathfinder" class="span3" style="display:grid;gap:1px;background:var(--line)"><div id="spot-list" style="display:grid;gap:1px"></div></div>
 
   <section id="sec-todo" class="tile info">
     <span class="vlabel caps">01 — To do</span>
@@ -292,7 +293,7 @@ body{padding-bottom:calc(110px + env(safe-area-inset-bottom,0px))}
 </div>
 
 <script>
-let ENTRIES=[],EVENTS=[],loaded=false;
+let ENTRIES=[],EVENTS=[],SPOT=[],loaded=false;
 const FEES={all:"全部",free:"免費",paid:"付費"};
 const CATS={all:"全部",photo:"攝影",think:"設計思考",brand:"品牌・平面",motion:"動態",ai:"AI",biz:"創新創業",team:"團隊賽"};
 const STATUS=[["todo","未開始"],["prep","準備中"],["sent","已投件"],["short","入圍"],["win","得獎"],["skip","放棄"]];
@@ -455,25 +456,43 @@ function renderSent(){
   for(const e of list)sec.append(makeCard(e));
   box.append(sec);
 }
+function makeEventCard(v,openDet){
+  const card=el("article",{class:"entry"});
+  if(v.date){const[,mm,dd]=v.date.split("-");card.append(el("div",{class:"date num"},el("span",{class:"day",text:dd}),el("span",{class:"caps",text:MONTHS[Number(mm)-1]})))}
+  else card.append(el("div",{class:"date num"},el("span",{class:"day ev",text:v.when})));
+  const title=el("h3",{},el("span",{class:"t",text:v.name}));
+  if(v.going)title.append(el("span",{class:"pill going",text:"我想報名"}));
+  const tags=el("div",{class:"tags"},el("span",{class:"pill"+(v.fee==="free"?" fill":""),text:v.fee==="free"?"FREE":"PAID"}),el("span",{class:"pill",style:"color:var(--muted)",text:v.kind}));
+  const dl=el("dl",{class:"credits"},el("dt",{text:"時間"}),el("dd",{},v.date?el("b",{text:v.when+"（"+leftLabel(daysLeft(v.date))[0]+"）"}):v.when),el("dt",{text:"說明"}),el("dd",{text:v.note}));
+  if(v.result)dl.append(el("dt",{text:"公布"}),el("dd",{text:v.result}));
+  const body=el("div",{class:"ebody"},title,tags,dl);
+  if(v.warn)body.append(el("p",{class:"warn"},el("b",{text:"注意 "}),v.warn));
+  const box=el("div",{class:"docbox"});
+  if((v.details||[]).length){const info=el("div",{class:"brief"});for(const[h,items]of v.details){const ul=el("ul");for(const t of items)ul.append(el("li",{text:t}));info.append(el("section",{},el("h4",{text:h}),ul))}box.append(el("div",{class:"caps sub",text:"Details"}),info)}
+  if((v.files||[]).length){const ul=el("ul",{class:"doclist"});for(const[l,u]of v.files)ul.append(el("li",{},el("a",{href:u,target:"_blank",rel:"noopener"},el("span",{class:"ext",text:"PDF"}),l),el("span",{class:"hint",text:"官網下載"})));box.append(el("div",{class:"caps sub",text:"Files"}),ul)}
+  if((v.links||[]).length){const ul=el("ul",{class:"doclist"});for(const[l,u]of v.links)ul.append(el("li",{},el("a",{href:u,target:"_blank",rel:"noopener"},el("span",{class:"ext",text:"↗"}),l)));box.append(el("div",{class:"caps sub",text:"Links"}),ul)}
+  if(openDet)body.append(box);
+  else if(box.children.length){const det=el("details",{class:"docs"});det.append(el("summary",{},el("span",{text:(v.details||[]).length?"詳細資料・連結":"連結"})),box);body.append(det)}
+  card.append(body,el("div",{class:"side"}));
+  return card;
+}
 function renderEvents(){
   const box=document.getElementById("events-list");box.textContent="";
   const sec=el("section",{class:"tile month","aria-label":"活動・課程"});
   sec.append(el("div",{class:"mhead"},el("h2",{},"Events",el("span",{class:"ast","aria-hidden":"true",text:"✳"})),el("div",{class:"meta caps"},el("div",{text:"活動・課程"}),el("div",{text:"不是比賽，但對拿獎有幫助"}))));
   if(!EVENTS.length)sec.append(el("div",{class:"empty",text:loaded?"目前沒有活動或課程。":"讀取中…"}));
-  for(const v of EVENTS){
-    const card=el("article",{class:"entry"});
-    card.append(el("div",{class:"date num"},el("span",{class:"day ev",text:v.when})));
-    const title=el("h3",{},el("span",{class:"t",text:v.name}));
-    const tags=el("div",{class:"tags"},el("span",{class:"pill"+(v.fee==="free"?" fill":""),text:v.fee==="free"?"FREE":"PAID"}),el("span",{class:"pill",style:"color:var(--muted)",text:v.kind}));
-    const body=el("div",{class:"ebody"},title,tags,el("dl",{class:"credits"},el("dt",{text:"時間"}),el("dd",{text:v.when}),el("dt",{text:"說明"}),el("dd",{text:v.note})));
-    if(v.warn)body.append(el("p",{class:"warn"},el("b",{text:"注意 "}),v.warn));
-    if((v.links||[]).length){const ul=el("ul",{class:"doclist"});for(const[l,u]of v.links)ul.append(el("li",{},el("a",{href:u,target:"_blank",rel:"noopener"},el("span",{class:"ext",text:"↗"}),l)));body.append(ul)}
-    card.append(body,el("div",{class:"side"}));
-    sec.append(card);
-  }
+  for(const v of EVENTS)sec.append(makeEventCard(v,false));
   box.append(sec);
 }
-function renderAll(){renderNext();renderTally();renderTimeline();renderSent();renderEvents()}
+function renderSpot(){
+  const box=document.getElementById("spot-list");box.textContent="";
+  const sec=el("section",{class:"tile month","aria-label":"圓夢基金專區"});
+  sec.append(el("div",{class:"mhead"},el("h2",{},"Dream",el("span",{class:"ast","aria-hidden":"true",text:"✳"})),el("div",{class:"meta caps"},el("div",{text:"青年百億海外圓夢基金"}),el("div",{text:"我想報名・獨立專區"}))));
+  if(!SPOT.length)sec.append(el("div",{class:"empty",text:loaded?"目前沒有資料。":"讀取中…"}));
+  for(const v of SPOT)sec.append(makeEventCard(v,true));
+  box.append(sec);
+}
+function renderAll(){renderNext();renderTally();renderTimeline();renderSent();renderEvents();renderSpot()}
 function setSync(t){document.getElementById("sync").textContent="進度儲存："+t}
 
 function useLocal(note){
@@ -488,6 +507,7 @@ fetch("data/competitions.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{
   ENTRIES=d.competitions.slice().sort((a,b)=>a.date.localeCompare(b.date));
   TODOS=d.todos.map(t=>[t.id,t.text]);
   EVENTS=d.events||[];
+  SPOT=d.pathfinder||[];
   document.getElementById("data-updated").textContent=d.updated;
   document.getElementById("data-count").textContent=ENTRIES.length;
   renderAll();renderTodos();
@@ -524,6 +544,7 @@ fetch("data/competitions.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{
     <a href="#sec-entries" data-sec="sec-entries"><span class="en">Entries</span><span class="zh">比賽<span class="count" id="dock-count">—</span></span></a>
     <a href="#sec-sent" data-sec="sec-sent"><span class="en">Sent</span><span class="zh">已投件<span class="count" id="dock-sent">—</span></span></a>
     <a href="#sec-events" data-sec="sec-events"><span class="en">Events</span><span class="zh">活動</span></a>
+    <a href="#sec-pathfinder" data-sec="sec-pathfinder"><span class="en">Dream</span><span class="zh">圓夢</span></a>
     <a href="#sec-todo" data-sec="sec-todo"><span class="en">To do</span><span class="zh">待辦<span class="count" id="dock-todo">—</span></span></a>
     <a href="#sec-schedule" data-sec="sec-schedule"><span class="en">Schedule</span><span class="zh">時程</span></a>
     <a href="#sec-bonus" data-sec="sec-bonus"><span class="en">Bonus</span><span class="zh">得獎後</span></a>
