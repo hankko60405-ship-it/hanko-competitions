@@ -299,6 +299,7 @@ function leftLabel(n){
   if(n===0)return["今天截止","hot"];
   return["D-"+n,n<=14?"hot":n<=45?"soon":"far"];
 }
+const st=e=>state.status[e.id]||e.status||"todo";
 const finished=s=>["sent","short","win","skip"].includes(s);
 
 function el(tag,attrs={},...kids){
@@ -325,7 +326,7 @@ function renderFilters(){
 
 function renderTimeline(){
   const main=document.getElementById("timeline");main.textContent="";
-  const list=ENTRIES.filter(e=>(filter==="all"||(filter==="team"?!!e.team:e.cats.includes(filter)))&&(fee==="all"||e.fee===fee)&&(src==="all"||(src==="going"?!!e.going:(src==="bh")===!!e.src))&&(stat==="all"||(state.status[e.id]||"todo")===stat));
+  const list=ENTRIES.filter(e=>(filter==="all"||(filter==="team"?!!e.team:e.cats.includes(filter)))&&(fee==="all"||e.fee===fee)&&(src==="all"||(src==="going"?!!e.going:(src==="bh")===!!e.src))&&(stat==="all"||(st(e))===stat));
   document.getElementById("count-label").textContent=list.length+" entries";
   if(!list.length){main.append(el("div",{class:"tile empty",text:loaded?"這個組合目前沒有比賽，換個篩選看看。":"讀取比賽資料中…"}));return}
   const groups=new Map();
@@ -337,7 +338,7 @@ function renderTimeline(){
     sec.append(el("div",{class:"mhead"},h,el("div",{class:"meta caps"},el("div",{text:y}),el("div",{text:Number(m)+" 月 · "+items.length+" 場"}))));
     for(const e of items){
       const n=daysLeft(e.date);const[lt,lc]=leftLabel(n);
-      const s=state.status[e.id]||"todo";
+      const s=st(e);
       const card=el("article",{class:"entry"+(n<0?" past":"")+(finished(s)&&s!=="skip"?" done":"")});
       const[,mm,dd]=e.date.split("-");
       card.append(el("div",{class:"date num"},
@@ -354,6 +355,7 @@ function renderTimeline(){
         el("dt",{text:"費用"}),el("dd",{text:e.feeNote||FEES[e.fee]}),
         el("dt",{text:"參賽"}),el("dd",{text:e.team||e.teamText||"個人"}),
         el("dt",{text:"備註"}),el("dd",{text:e.note}));
+      if(e.result)dl.append(el("dt",{text:"公布"}),el("dd",{},el("b",{text:e.result})));
       const body=el("div",{class:"ebody"},title,tags,dl);
       if(e.warn)body.append(el("p",{class:"warn"},el("b",{text:"注意 "}),e.warn));
       const nf=(e.files||[]).length,nl=(e.links||[]).length;
@@ -389,7 +391,7 @@ function renderTimeline(){
 }
 
 function renderNext(){
-  const up=ENTRIES.filter(e=>daysLeft(e.date)>=0&&!finished(state.status[e.id]));
+  const up=ENTRIES.filter(e=>daysLeft(e.date)>=0&&!finished(st(e)));
   const d=document.getElementById("next-d"),n=document.getElementById("next-n"),ul=document.getElementById("upnext");
   ul.textContent="";
   if(!loaded){d.textContent="—";n.textContent="讀取比賽資料中…";ul.hidden=true;return}
@@ -405,7 +407,7 @@ function renderNext(){
 function renderTally(){
   const t=document.getElementById("tally");t.textContent="";
   for(const k of["free","paid"])t.append(el("span",{class:"pill"+(k==="free"?" fill":"")},FEES[k]+" ",el("b",{class:"num",text:String(ENTRIES.filter(e=>e.fee===k).length)})));
-  const c={};for(const e of ENTRIES){const s=state.status[e.id]||"todo";c[s]=(c[s]||0)+1}
+  const c={};for(const e of ENTRIES){const s=st(e);c[s]=(c[s]||0)+1}
   for(const[v,label]of STATUS){if(c[v])t.append(el("span",{class:"pill",style:"color:var(--muted)"},label+" ",el("b",{class:"num",text:String(c[v])})))}
 }
 
