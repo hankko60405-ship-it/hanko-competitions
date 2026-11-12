@@ -125,6 +125,10 @@ select.s-prep{border-style:dashed}
 .docs[open] summary::after{content:"–"}
 .docbox{display:grid;gap:8px;margin-top:12px}
 .docbox .sub{color:var(--muted)}
+.brief{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));grid-auto-flow:row;gap:1px;background:var(--line);border:1px solid var(--line)}
+.brief section{background:var(--tile);padding:10px 12px;font-size:14px}
+.brief h4{margin:0 0 4px;font-size:14px}
+.brief ul{margin:0;padding-left:1.2em;display:grid;gap:2px}
 .doclist{list-style:none;margin:0;padding:0;display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
 .doclist li{background:var(--tile);display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 12px;font-size:14px;min-width:0}
 .doclist a{display:inline-flex;gap:10px;align-items:center;min-width:0;overflow-wrap:anywhere}
@@ -358,12 +362,17 @@ function renderTimeline(){
       if(e.result)dl.append(el("dt",{text:"公布"}),el("dd",{},el("b",{text:e.result})));
       const body=el("div",{class:"ebody"},title,tags,dl);
       if(e.warn)body.append(el("p",{class:"warn"},el("b",{text:"注意 "}),e.warn));
-      const nf=(e.files||[]).length,nl=(e.links||[]).length;
+      const nf=(e.files||[]).length,nl=(e.links||[]).length,nd=(e.details||[]).length;
       const det=el("details",{class:"docs",id:"docs-"+e.id});
       if(openDocs.has(e.id))det.open=true;
       det.ontoggle=()=>{det.open?openDocs.add(e.id):openDocs.delete(e.id)};
-      det.append(el("summary",{},el("span",{text:nf?"報名檔案 "+nf+" 份・官網連結":"官網連結（沒有下載檔，報名都在網站上）"})));
+      det.append(el("summary",{},el("span",{text:(nd?"詳細簡章・":"")+(nf?"報名檔案 "+nf+" 份・官網連結":"官網連結（沒有下載檔，報名都在網站上）")})));
       const box=el("div",{class:"docbox"});
+      if(nd){
+        const info=el("div",{class:"brief"});
+        for(const[h,items]of e.details){const ul=el("ul");for(const t of items)ul.append(el("li",{text:t}));info.append(el("section",{},el("h4",{text:h}),ul))}
+        box.append(el("div",{class:"caps sub",text:"Details"}),info);
+      }
       if(nf){
         const ul=el("ul",{class:"doclist"});
         for(const[label,path]of e.files){
