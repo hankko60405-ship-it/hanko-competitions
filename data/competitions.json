@@ -1602,6 +1602,47 @@
      "gcu/terms.pdf"
     ]
    ]
+  },
+  {
+   "id": "ysed-24",
+   "date": "2027-02-16",
+   "name": "第 24 屆育秀盃創意獎（品牌形象類）",
+   "cats": [
+    "brand",
+    "motion",
+    "ai"
+   ],
+   "fee": "free",
+   "feeNote": "簡章沒寫報名費，應該免費（待確認）",
+   "teamText": "可個人或組隊，鼓勵跨校跨系（人數看辦法）",
+   "note": "育秀教育基金會、教育部、經濟部產發署主辦，主題「玩轉AI．智創未來」。品牌形象類做影像、創意企劃、角色 IP、文創設計，替企業命題做品牌溝通。總獎勵逾 300 萬，有機會到聯華集團實習。品牌形象類 2027/2/16 報名＋初賽繳件截止。",
+   "warn": "另外兩類比較早截止：數位應用類、工業設計類 12/31。命題、組隊人數、作品規格請到官網「競賽辦法 → 品牌形象類」確認。得獎要親自出席頒獎，作品授權主辦單位使用三年。",
+   "links": [
+    [
+     "官網",
+     "https://award.ysed.org.tw/"
+    ],
+    [
+     "品牌形象類辦法（主題）",
+     "https://award.ysed.org.tw/competition/93/1"
+    ],
+    [
+     "品牌形象類作品規格",
+     "https://award.ysed.org.tw/competition/93/5"
+    ],
+    [
+     "品牌形象類評選標準",
+     "https://award.ysed.org.tw/competition/93/6"
+    ],
+    [
+     "品牌形象類獎項",
+     "https://award.ysed.org.tw/competition/93/7"
+    ],
+    [
+     "線上報名",
+     "https://award.ysed.org.tw/signup"
+    ]
+   ]
   }
  ],
  "todos": [
