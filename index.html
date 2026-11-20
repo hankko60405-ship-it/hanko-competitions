@@ -86,6 +86,9 @@ a{color:inherit;text-decoration:underline;text-underline-offset:3px;text-decorat
 .entry{display:grid;grid-template-columns:96px minmax(0,1fr) 180px;gap:20px;padding:20px 22px;border-bottom:1px solid var(--line);background:var(--tile)}
 .entry:last-child{border-bottom:0}
 .entry.past{opacity:.45}
+.pastbox>summary{cursor:pointer;list-style:none}
+.pastbox>summary::-webkit-details-marker{display:none}
+.pastbox:not([open])>summary{opacity:.6}
 .entry.done{background:var(--tile2)}
 .entry.skipped{opacity:.4;filter:grayscale(1)}
 .entry.skipped:hover,.entry.skipped:focus-within{opacity:.85}
@@ -406,8 +409,9 @@ function renderTimeline(){
   const list=ENTRIES.filter(e=>!isSent(st(e))&&(filter==="all"||(filter==="team"?!!e.team:e.cats.includes(filter)))&&(fee==="all"||e.fee===fee)&&(src==="all"||(src==="fav"?!!state.fav[e.id]:src==="going"?!!e.going:(src==="bh")===!!e.src))&&(stat==="all"||(st(e))===stat));
   document.getElementById("count-label").textContent=list.length+" entries";
   if(!list.length){main.append(el("div",{class:"tile empty",text:loaded?"這個組合目前沒有比賽，換個篩選看看。":"讀取比賽資料中…"}));return}
+  const past=list.filter(e=>daysLeft(e.date)<0).reverse();
   const groups=new Map();
-  for(const e of list){const k=e.date.slice(0,7);if(!groups.has(k))groups.set(k,[]);groups.get(k).push(e)}
+  for(const e of list){if(daysLeft(e.date)<0)continue;const k=e.date.slice(0,7);if(!groups.has(k))groups.set(k,[]);groups.get(k).push(e)}
   for(const[k,items]of groups){
     const[y,m]=k.split("-");
     const sec=el("section",{class:"tile month","aria-label":y+" 年 "+Number(m)+" 月"});
@@ -416,7 +420,16 @@ function renderTimeline(){
     for(const e of items)sec.append(makeCard(e));
     main.append(sec);
   }
+  if(past.length){
+    const det=el("details",{class:"tile month pastbox"});
+    if(openPast)det.open=true;
+    det.ontoggle=()=>{openPast=det.open};
+    det.append(el("summary",{class:"mhead"},el("h2",{},"Past",el("span",{class:"ast","aria-hidden":"true",text:"✳"})),el("div",{class:"meta caps"},el("div",{text:"已截止"}),el("div",{text:past.length+" 場 · 點開看"}))));
+    for(const e of past)det.append(makeCard(e));
+    main.append(det);
+  }
 }
+let openPast=false;
 
 function renderNext(){
   const up=ENTRIES.filter(e=>daysLeft(e.date)>=0&&!finished(st(e)));
