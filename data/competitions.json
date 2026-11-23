@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-19",
+ "updated": "2026-11-23",
  "note": "Hanko 參賽路線的資料來源。網站 index.html 會讀這個檔案。格式說明見 CLAUDE.md。",
  "competitions": [
   {
@@ -570,8 +570,7 @@
    "fee": "free",
    "feeNote": "費用請看簡章",
    "teamText": "個人或最多 5 人",
-   "note": "大專在學生（不含博士生）。",
-   "tentative": true,
+   "note": "大專在學生（不含博士生）。11/30（一）18:00 截止。",
    "src": "獎金獵人",
    "links": [
     [
@@ -629,8 +628,7 @@
    "fee": "free",
    "feeNote": "費用請看簡章",
    "teamText": "個人或團隊",
-   "note": "不限年齡國籍，主題不拘，總獎金 200 萬。",
-   "tentative": true,
+   "note": "不限年齡國籍，主題不拘，總獎金 200 萬。11/30 截止。",
    "src": "獎金獵人",
    "links": [
     [
@@ -649,8 +647,7 @@
    "fee": "free",
    "feeNote": "費用請看簡章",
    "teamText": "個人",
-   "note": "在宮掌櫃平台做一套網站模板，截圖做簡報參賽。",
-   "tentative": true,
+   "note": "在宮掌櫃平台做一套網站模板，截圖做簡報參賽。徵件到 11/30。",
    "src": "獎金獵人",
    "links": [
     [
@@ -789,7 +786,7 @@
   },
   {
    "id": "bh-uem5i3pfj47qef0nxl",
-   "date": "2026-12-10",
+   "date": "2026-12-16",
    "name": "116 年度新竹市「策展人培力計畫」",
    "cats": [
     "think"
@@ -797,8 +794,7 @@
    "fee": "free",
    "feeNote": "費用請看簡章",
    "teamText": "個人或最多 3 人",
-   "note": "用 email 提案，初選後進策展工作坊。你的策展經驗很對口。",
-   "tentative": true,
+   "note": "用 email 提案，12/16（三）23:59 截止，初選後進策展工作坊。你的策展經驗很對口。",
    "src": "獎金獵人",
    "links": [
     [
@@ -829,7 +825,7 @@
   },
   {
    "id": "bh-r2fhkbc5a6x54xwsmc",
-   "date": "2026-12-10",
+   "date": "2026-12-21",
    "name": "2026 農田水利之美全國攝影大賽",
    "cats": [
     "photo"
@@ -837,8 +833,7 @@
    "fee": "free",
    "feeNote": "費用請看簡章",
    "teamText": "個人",
-   "note": "主題是農田水利設施與景觀。",
-   "tentative": true,
+   "note": "主題是農田水利設施與景觀。12/21（一）中午 12:00 截止。",
    "src": "獎金獵人",
    "links": [
     [
@@ -1643,6 +1638,144 @@
      "https://award.ysed.org.tw/signup"
     ]
    ]
+  },
+  {
+   "id": "bh-0eltee1k1e7snjk31v",
+   "date": "2026-11-30",
+   "name": "台灣觀光 100 亮點・短影音玩家招募",
+   "cats": [
+    "motion"
+   ],
+   "fee": "free",
+   "feeNote": "費用請看簡章",
+   "teamText": "個人",
+   "note": "交通部觀光署主辦。11/30 前報名，12 月媒合 100 位玩家到指定亮點拍短影音，最高獎金 10 萬。",
+   "warn": "先報名、再依社群經營狀況和過往作品媒合，不是報名就能參賽。",
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/0eltee1k1e7snjk31v"
+    ]
+   ]
+  },
+  {
+   "id": "bh-cp4ypzv4bv8uegnuf2",
+   "date": "2026-11-30",
+   "name": "Gemini 超行・精采玩大的！YouTube Shorts 創作大賽",
+   "cats": [
+    "ai",
+    "motion"
+   ],
+   "fee": "free",
+   "teamText": "個人",
+   "note": "用至少一種 Google AI 工具做 AI 短影音，上傳自己的 YouTube。依觀看數取前 30 名再評審，12/14 14:00 統計觀看數。",
+   "warn": "限 18 歲以上、中華民國國籍。投稿截止日是依列表「還有 7 天」推估，待確認。",
+   "tentative": true,
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/cp4ypzv4bv8uegnuf2"
+    ]
+   ]
+  },
+  {
+   "id": "bh-pb7f5lsrccr153rxc2",
+   "date": "2026-12-13",
+   "name": "2026 士林官邸菊展攝影比賽",
+   "cats": [
+    "photo"
+   ],
+   "fee": "free",
+   "teamText": "個人，最多 3 件",
+   "note": "拍菊展「菊映方圓」展區景觀和花藝，照片要在 11/27～12/13 拍，12/13（日）23:59 截止，總獎金 3 萬。相機手機都可以。",
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/pb7f5lsrccr153rxc2"
+    ]
+   ]
+  },
+  {
+   "id": "bh-3108tz3i4fhndq7x9p",
+   "date": "2026-12-31",
+   "name": "臺灣之東 23.5°N 國際旅遊限時攝影創作大賽",
+   "cats": [
+    "photo",
+    "motion"
+   ],
+   "fee": "free",
+   "feeNote": "簡章沒寫報名費（待確認）；入圍要自付交通",
+   "teamText": "團隊最多 4 人",
+   "note": "先交團隊介紹＋拍攝計畫書，入圍後 2027/3/6～3/11 到台灣東部現地限時創作 5 天。首獎 5 萬。計畫書要寫田調和地方觀點，跟你的田野調查、地方創生經驗很對口。",
+   "warn": "限年滿 20 歲。",
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/3108tz3i4fhndq7x9p"
+    ]
+   ]
+  },
+  {
+   "id": "bh-blc477zgusgpf3dy6j",
+   "date": "2027-01-23",
+   "name": "英國最佳攝影大獎 Best Photography Awards UK",
+   "cats": [
+    "photo"
+   ],
+   "fee": "paid",
+   "feeNote": "每張 10 英鎊",
+   "teamText": "個人或團隊",
+   "note": "18 歲以上，件數不限，發表過的作品也能投。",
+   "warn": "收費型國際獎，含金量較低。截止日依列表「約 2 個月」推估。",
+   "tentative": true,
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/blc477zgusgpf3dy6j"
+    ]
+   ]
+  },
+  {
+   "id": "bh-ozumm66vptkqd53lw7",
+   "date": "2027-03-31",
+   "name": "淡江大橋通車系列攝影比賽（第二階段）",
+   "cats": [
+    "photo"
+   ],
+   "fee": "free",
+   "teamText": "個人",
+   "note": "拍淡江大橋，攝影類不限年齡國籍、免費。第二階段徵件到 2027/3/31，4/20 公布。要 1600 萬畫素以上、未公開發表。",
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/ozumm66vptkqd53lw7"
+    ]
+   ]
+  },
+  {
+   "id": "bh-l841j0qpe08jsb7ftg",
+   "date": "2027-03-31",
+   "name": "第二屆綠影創作獎（社會大眾新秀組）",
+   "cats": [
+    "motion"
+   ],
+   "fee": "free",
+   "feeNote": "費用請看簡章",
+   "teamText": "個人或團隊",
+   "note": "主題「100 種綠色生活的可能」永續短片。報名到 2027/3/31 17:00，收件 2/15～3/31。在學學生算業餘，投新秀組。最高獎金 8 萬。",
+   "src": "獎金獵人",
+   "links": [
+    [
+     "獎金獵人頁面（簡章）",
+     "https://bhuntr.com/tw/competitions/l841j0qpe08jsb7ftg"
+    ]
+   ]
   }
  ],
  "todos": [
@@ -1655,12 +1788,8 @@
    "text": "11/30（一）中午 12:00 前：圓夢基金海外翱翔組 M-4-1 柏林，註冊會員、寫計畫摘要表＋申請書（15～30 頁）、上傳 PDF"
   },
   {
-   "id": "go-1115",
-   "text": "11/15 前送出：海洋文化攝影比賽（最多 5 張）、GCU 校園創意大賽（作品＋300 字理念）"
-  },
-  {
    "id": "team",
-   "text": "組隊：三創（11/20）和 AI 競賽（12/1）要隊友＋指導老師"
+   "text": "組隊：AI 競賽（12/1）要隊友＋指導老師"
   },
   {
    "id": "cert",
@@ -1676,7 +1805,7 @@
   },
   {
    "id": "confirm",
-   "text": "確認三創、AI 競賽、Hult Prize 的費用和截止日"
+   "text": "確認 AI 競賽、Hult Prize 的費用和截止日"
   },
   {
    "id": "sonyuni",
